@@ -1,0 +1,98 @@
+%!TEX TS-program = pdflatex
+%!TeX encoding = UTF-8
+%!TeX spellcheck = en_US
+%!TeX root = userManual.tex
+%!TeX author = Dr.Ing. Mohammed Nour Abdelgwad Ahmed
+%!TeX version = 1.5
+%!TeX date = 2017.03.10
+
+\documentclass[%
+DIV=12,
+abstract=on
+%a5paper,                 % alle weiteren Papierformat einstellbar
+%landscape,              % Querformat
+%10pt,                       % Schriftgröße (12pt, 11pt (Standard))
+%BCOR1cm,               % Bindekorrektur, bspw. 1 cm
+%DIVcalc,                  % führt die Satzspiegelberechnung neu aus scrguide s.2.4
+%twoside,                 % Doppelseiten
+%twocolumn,            % zweispaltiger Satz
+%halfparskip*,           % Absatzformatierung s. scrguide 3.1
+%headsepline,           % Trennline zum Seitenkopf
+%footsepline,            % Trennline zum Seitenfuß
+%titlepage,                % Titelei auf eigener Seite
+%normalheadings ,    % Überschriften etwas kleiner (smallheadings)
+%idxtotoc,                 % Index im Inhaltsverzeichnis
+%liststotoc,               % Abb.- und Tab.verzeichnis im Inhalt
+%bibtotoc,                 % Literaturverzeichnis im Inhalt
+%abstracton,              % Überschrift über der Zusammenfassung an
+%leqno,                      % Nummerierung von Gleichungen links
+%fleqn,                       % Ausgabe von Gleichungen linksbündig
+%draft                        % überlangen Zeilen in Ausgabe gekennzeichnet
+]
+{scrartcl} %scrreprt
+
+% Deutsche Anpassungen %
+%\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern} 	%Type1-Schriftart für nicht-englische Texte
+\usepackage{amssymb} %provides various useful mathematical symbols
+\usepackage{amsthm}  %provides extended theorem environments
+\usepackage{amsmath} %provides the align environment
+\usepackage{xcolor}
+\usepackage[bookmarks,
+  bookmarksopen=false,
+  bookmarksnumbered=true,
+  pdftex,pdfhighlight=/N,
+  linkcolor=blue!60!black,
+  urlcolor=blue!60!black,
+  colorlinks=true,
+  citecolor=green!20!black,
+  pdftitle={Steering Control for Autonomous Path Tracking},
+  pdfsubject={EO2 Path Following Documentation},  % insert subtitle
+  pdfkeywords={terramechanics, testbed, force measurement, soil contact interactions, impedance control, legged robots, simulation},
+  pdfauthor={Dr.Ing. Mohammed Nour Abdelgwad Ahmed}]{hyperref}
+
+% Packages für Grafiken & Abbildungen %
+\usepackage{graphicx} 	%Zum Laden von Grafiken
+%\usepackage{subfig} 	%Teilabbildungen in einer Abbildung
+\usepackage{wrapfig}
+
+% Bibliographiestil %
+%\usepackage{natbib}
+
+%------------------------------------------------------------------------------
+\usepackage[automark,headsepline]{scrlayer-scrpage}
+\clearpairofpagestyles
+\cfoot[\pagemark]{\pagemark}
+\lehead{\headmark}
+\rohead{\headmark}
+\pagestyle{scrheadings}
+
+%\setkomafont{pagehead}{\normalfont\bfseries}
+%\renewcommand*\pagemark{{\usekomafont{pagenumber}Page\nobreakspace\thepage}}
+%\addtokomafont{pageheadfoot}{\upshape}
+%------------------------------------------------------------------------------
+
+
+  \usepackage{tikz} %for the revision No. block on the margin of title (first) page
+%\usetikzlibrary{shapes}
+
+\definecolor{thegrey} {gray}{0.5}
+\definecolor{theshade}{gray}{0.94}
+\definecolor{theframe}{gray}{0.75}
+
+\usepackage{myboxedtheorem}
+%\newboxedtheorem[options]{theo}{Theorem}{thCounter}
+%boxcolor = black, titleboxcolor = black, background = white, titlebackground = white, titlecolor = black, thcounter=, size = .9\textwidth
+%\newboxedtheorem[boxcolor=blue!20, background=blue!5, titlebackground=blue!20, titleboxcolor = blue!20]{theo}{Theorem}{anything}
+\newboxedtheorem[boxcolor=theframe, background=theshade, titlebackground=thegrey,%
+                 titlecolor = white, titleboxcolor = thegrey, size = 0.8\textwidth]{myColoredBox}{}{}
+
+\newboxedtheorem[boxcolor=pink, titleboxcolor = pink, titlebackground=red!20, background=red!5]{mytheo}{}{}
+%------------------------------------------------------------------------------
+\setkomafont{title}{\normalfont\bfseries\small} %to set the tile font (I hate the default one ;))
+
+\graphicspath{{./figures/}}
+\pagestyle{empty} %Keine Kopf-/Fusszeilen auf den ersten Seiten.
+%==============================================================================

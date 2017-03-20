@@ -1,0 +1,87 @@
+\input{myReportSettings}
+%==============================================================================
+
+\begin{document}
+\thispagestyle{scrplain}
+
+% title page ------------------------------------------------------------------
+\titlehead{Titelkopf}
+\subject{EO2 Path Following Documentation}
+\title{EO2 Intelligent Driving Assistance (IDA)}
+\subtitle{Steering Control for Autonomous Path Tracking}
+\author{Dr.Ing. Mohammed Nour\footnote{corresponding author: Zagazig University, Faculty of Engineering, Computer and Systems Dept., Zagazig, Egypt, \href{mailto:mnahmed@eng.zu.edu.eg}{mnahmed@eng.zu.edu.eg}} %{Mohammed Ahmed}
+\and{Eng. Zaid Obeid}
+\and{Eng. Folan Ellan}
+\and{Eng. Zaid Obeid2}
+\and{Eng. Folan Ellan2}
+\and{Eng. Folan Ellan3}
+}
+%\thanks{last revision \today}           % entspr. \footnote im Fließtext
+\date{}%\today}                                 % in case another date other than today is wanted
+
+\publishers{\vspace{15 mm}\includegraphics[width=0.55\textwidth]{kuka}}
+
+% dedication ------------------------------------------------------------------
+%\dedication{Widmung}
+
+\maketitle      % show the title page
+
+% add the revison side block
+\begin{tikzpicture}[overlay,remember picture]
+  \node[fill=black!30,text=white, inner ysep=2pt, inner xsep=20pt, rectangle,rotate=90]
+    at ([xshift=10mm,yshift=0mm]current page.west)
+    {\footnotesize{last revision \today}};
+\end{tikzpicture}
+%==============================================================================
+% abstract after title and befor table of contents 
+\vfill
+\begin{abstract}
+This report presents the derivation, design, and implementation of the ZUKA project.
+\end{abstract}
+
+%==============================================================================
+\clearpage
+\pagestyle{scrheadings}
+\tableofcontents
+%\listoftables
+%\listoffigures
+%\newpage
+\clearpage
+%==============================================================================
+
+% main content ----------------------------------------------------------------
+\section{Path Following Module }
+where $(x, y)$ represents the coordinates of the point $P$ located at mid-distance of the actuated wheels, the angle $\theta$ characterizes the vehicle chassis orientation, $\phi$ represents the vehicle steering \textbf{wheel} angle, and $L$ is the distance between the rear and front wheels axles.
+%------------------------------------------------------------------------------
+
+\subsection{Vehicle Model}
+For the vehicle, the kinematic model used (shown in Fig.\ref{fig:configurationVariables}) is:
+\begin{align}
+\dot{x} &= u_1 \cos\theta \notag\\
+\dot{y} &= u_1 \sin\theta \notag\\
+\dot{\theta} &=\frac{u_1 }{L} \tan\phi \notag\\
+\dot{\phi} &= u_2
+\label{eq:kinematicModel}
+\end{align}
+where $(x, y)$ represents the coordinates of the point $P$ located at mid-distance of the actuated wheels, the angle $\theta$ characterizes the vehicle chassis orientation, $\phi$ represents the vehicle steering wheel angle, and $L$ is the distance between the rear and front wheels axles.
+\begin{figure}[htbp]
+	\centering
+    \includegraphics[width=0.4\textwidth]{kuka}
+    \caption{Configuration variables of the vehicle kinematic model}
+	\label{fig:configurationVariables}
+\end{figure}
+
+ \begin{mytheo}[$\looparrowright$ Law of Large Numbers]
+    To calculate the horizontal position the kinematic differential equations are needed:
+    \begin{align}
+    \dot{n} &= u\cos\psi -v\sin\psi \\
+    \dot{e} &= u\sin\psi + v\cos\psi
+    \end{align}
+\end{mytheo}
+%==============================================================================
+
+\newpage
+\appendix
+\section{Appendix Part }
+where $(x, y)$ represents the coordinates of the point $P$ located at mid-distance of the actuated wheels, the angle $\theta$ characterizes the vehicle chassis orientation, $\phi$ represents the vehicle steering wheel angle, and $L$ is the distance between the rear and front wheels axles.
+\end{document}
