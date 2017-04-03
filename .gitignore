@@ -1,3 +1,5 @@
+## ignore rules for latex
+## from https://github.com/github/gitignore/blob/master/ROS.gitignore
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
