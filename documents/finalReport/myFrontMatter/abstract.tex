@@ -1,0 +1,67 @@
+\markboth{Abstract}{}
+\addcontentsline{toc}{chapter}{Abstract}
+\chapter*{Abstract}
+%architecture------------------------------------------------------------------
+In this thesis, we introduce a novel architecture called ``Intelligent Architecture for Legged Robot Terrain Classification Using Proprioceptive and Exteroceptive Data (\art)''. The proposed architecture integrates different terrain characterization and classification with other robotic system components.
+
+Within \art, we consider the problem of having a legged robot autonomously learn to identify different terrains. Robust terrain identification can be used to enhance the capabilities of legged robot systems, both in terms of locomotion and navigation. For example, a robot that has learned to differentiate sand from gravel can autonomously modify (or even select a different) path in favor of traversing over a \emph{better} terrain. The same knowledge of the terrain type can also be used to guide a robot in order to avoid specific terrains. To tackle this problem, we developed four approaches for terrain characterization, classification, path planning, and control for a mobile legged robot. 
+%In the context of this work, terrain classification aims at associating terrains with one of a predefined set of terrain types, such as gravel, sand, or tile.
+%Terrain characterization, on the other hand, aims at determining key parameters of the terrain that affect its dynamic interaction with the robot feet. These two categories are collectively called \emph{identification}. The presented approaches are a method to estimate the robot foot--ground interaction forces, a short--range terrain classifier for the local terrain, a remote terrain visual classification, and path planning and following.
+%terrain classification and characterization system comprises a six legged mobile robot, as well as its onboard sensors. Using these components, our system can characterize and classify terrain in real time and during the robot's actual mission.
+%PTP-------------------------------------
+%Within \art 
+
+We developed a particle system inspired approach to estimate the robot foot--ground contact interaction forces.
+The approach is derived from the well known Bekker's theory to estimate the contact forces based on its point contact model concepts. It is realistically model real-time 3-dimensional contact behaviors between rigid body objects and the soil. For a real-time capable implementation of this approach, its reformulated to use a lookup table generated from simple contact experiments of the robot foot with the terrain.
+
+%\clearpage
+
+%short-range-------------------------------------------------------------------
+Also, we introduced a short-range terrain classifier using the robot embodied data. The classifier is based on a supervised machine learning approach to optimize the classifier parameters and train it using proprioceptive sensor measurements. The learning framework preprocesses sensor data through channel reduction and filtering such that the classifier is trained on the feature vectors that are closely associated with terrain class.
+
+%long range visual terrain classification--------------------------------------
+For the long--range terrain type prediction using the robot exteroceptive data, we present an online visual terrain classification system. It uses only a monocular camera with a feature-based terrain classification algorithm which is robust to changes in illumination and view points. For this algorithm, we extract local features of terrains using Speed Up Robust Feature (SURF). We encode the features using the Bag of Words (BoW) technique, and then classify the words using Support Vector Machines (SVMs).
+%We applied this approach on eight different terrain image sets (grass, gravel, pavement, sand, tile, floor, mud, and fine gravel). For terrain images, we observe up to 95\% accuracy with the feature-based approach.
+
+
+%path following and control ---------------------------------------------------
+In addition, we described a terrain dependent navigation and path planning approach that is based on E$^*$ planer and employs a proposed metric that specifies the navigation costs associated terrain types. This generated path naturally avoids obstacles and favors terrains with lower values of the metric.
+At the low level, a proportional input-scaling controller is designed and implemented to autonomously steer the robot to follow the desired path in a stable manner.
+
+%final-------------------------------------------------------------------------
+\art performance was tested and validated experimentally using several different sensing modalities (proprioceptive and exteroceptive) and on the six legged robotic platform CREX.
+The results show that the proposed architecture integrating the aforementioned approaches with the robotic system allowed the robot to learn both robot-terrain interaction and remote terrain perception models, as well as the relations linking those models. This learning mechanism is performed according to the robot own embodied data. Based on the knowledge available, the approach makes use of the detected remote terrain classes to predict the most probable navigation behavior. With the assigned metric, the performance of the robot on a given terrain is predicted. This allows the navigation of the robot to be influenced by the learned models.
+
+Finally, we believe that \art and the methods proposed in this thesis can likely also be implemented on other robot types (such as wheeled robots), although we did not test this option in our work.
+
+
+%terrain classification and characterization system comprises a six legged mobile robot, as well as its onboard sensors. Using these components, our system can characterize and classify terrain in real time and during the robot's actual mission.
+
+
+%We applied this approach on eight different terrain image sets (grass, gravel, pavement, sand, tile, floor, mud, and fine gravel). For terrain images, we observe up to 95\% accuracy with the feature-based approach.
+
+
+%A supervised learning architecture is applied in this work where a set of labeled data is used to train a classifier in an offline environment. Thus, the architecture enables a robot to learn its terrain interactions from experiments. Verification is then performed on the classifier by using a different set of labeled test data.
+
+
+%Firstly, it allows the robot to learn both robot-Terrain Interaction and remote terrain perception models, as well as the relations linking those models. This learning mechanism is performed according to the
+%robot own representation of the data.
+%Secondly, based on the knowledge available, the approach makes use of the detected remote terrain classes to predict the most probable interaction behaviors. Based on a predefined metric, the performance of the robot on a given terrain is predicted. This allows the navigation of the robot to be influenced by the learned models.
+%
+%
+%
+%
+%
+%
+%
+%
+%The problem of autonomous terrain identification is decomposed into two sub-problems: a sensing sub-problem, and a learning sub-problem. In the sensing sub-problem, we look at extracting terrain information from existing sensors. In particular, we show that inertial sensor measurements and actuator feedback information can be combined to enable terrain identification for a legged robot.
+%In the learning sub-problem, we discuss how temporal or spatial continuities can be exploited to perform the clustering
+%of both time-series and images. Specifically, we present a new algorithm that can be used to train a number of classifiers in order to perform clustering when temporal or spatial dependencies between samples are present. We combine our sensing approach with this
+%clustering technique, to obtain a computational architecture that can learn autonomously to differentiate terrains. This approach is validated experimentally using several different sensing modalities (proprioceptive and tactile) and a robotic platform (on
+%a legged robot named SpaceClimber). Finally, we show that the same clustering technique, when combined with image information, can be used to ......
+%
+%
+%
+%
+%

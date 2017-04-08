@@ -1,0 +1,78 @@
+%!TEX root = myThesis.tex
+%!TEX encoding = UTF-8 Unicode
+
+%***************************************************************************************************
+% create smaller pdf
+% http://tex.stackexchange.com/questions/14429/pdftex-reduce-pdf-size-reduce-image-quality
+
+%  gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/prepress -dNOPAUSE -dQUIET -dBATCH -sOutputFile=small.pdf Doktorarbeit.pdf
+
+%  gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -sOutputFile=small.pdf Doktorarbeit.pdf
+
+% -dPDFSETTINGS=/screen   (screen-view-only quality, 72 dpi images)
+% -dPDFSETTINGS=/ebook    (low quality, 150 dpi images)
+% -dPDFSETTINGS=/printer  (high quality, 300 dpi images)
+% -dPDFSETTINGS=/prepress (high quality, color preserving, 300 dpi imgs)
+% -dPDFSETTINGS=/default  (almost identical to /screen)
+%***************************************************************************************************
+
+
+% settings -------------------------------------------------------------------
+%try this to fix the margin problem
+%http://tex.stackexchange.com/questions/10128/two-sided-document-reverse-page-margins-for-hardcopy
+%***************************************************************************************************
+
+\usepackage{mathtools} %for the dcases environment
+%*****************************************************************************
+\setlength{\marginparwidth}{0pt}
+
+\newenvironment{myCompactItemize}
+{ \begin{itemize}
+    \setlength{\itemsep}{0pt}
+    \setlength{\parskip}{0pt}
+    \setlength{\parsep}{0pt}     }
+{ \end{itemize}                  } 
+
+% 'text' shortcuts -----------------------------------------------------------
+\newcommand{\etal}{\textit{et al.\ }}
+\newcommand{\kmeans}{$k$--{\ttfamily means} }
+\newcommand{\kmeanspp}{$k$--{\ttfamily means++} }
+\newcommand{\art}{\textit{i}{\scshape ArteC} }
+
+% math stuff -----------------------------------------------------------------
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\newcommand{\s}[2]{\left\langle #1,#2\right\rangle} % scalar product
+\newcommand{\n}[1]{\left\|#1\right\|}  							% norm
+\newcommand{\abs}[1]{\left |#1\right |} 						%abs, magnitude
+
+
+%commented out because it causes  the error:
+%too many math alphabets used in version normal
+%\usepackage{bm}
+%\renewcommand{\vec}[1]{\ensuremath{\bm{#1}}}
+%\newcommand{\matx}[1]{\ensuremath{\bm{#1}}}     		%matrix notation (ISO complying version)
+
+\renewcommand{\vec}[1]{\ensuremath{\mathbf{#1}}} 	%vector notation
+\newcommand{\matx}[1]{\ensuremath{\mathbf{#1}}} 		% matrix notation
+
+
+%$\begin{bmatrix*}[r]
+  %-1 & 3 \\
+  %2 & -4
+ %\end{bmatrix*}
+%$
+
+% environment redefenitions --------------------------------------------------
+\newtheorem{defn}{Method}%{\bfseries}{\itshape}
+\theoremstyle{definition} %plain | definition | remark
+\newtheorem{definition}{Definition}
+
+%shorthand for the nomenclature that prints the symbol/abbreviation and generates a list entry at the same time.
+\newcommand*{\nom}[2]{#1\nomenclature{#1}{#2}}
+%example: \nom{EST}{Eastern Standard Time}
+%\nom{}{}
+
+%\def\mydate{\leavevmode\hbox{\the\year-\twodigits\month-\twodigits\day}}
+\def\mydate{\leavevmode\hbox{\the\year\twodigits\month\twodigits\day}}
+\def\twodigits#1{\ifnum#1<10 0\fi\the#1}
