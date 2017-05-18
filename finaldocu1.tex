@@ -1,0 +1,160 @@
+\documentclass{book}
+
+\begin{document}
+   \tableofcontents
+   \newpage
+   \section{Acknowledgment}
+   \newpage
+   \section{Dedication}
+   \newpage
+   \section{Abstract}
+   
+   \listoffigures
+   \listoftables
+   %check bookmarks later for the list of abbreviations package
+   
+
+   
+
+	\chapter{Introduction}
+	
+	\chapter{Analysis, Manufacturing and Installation of a base for robot fixation}
+		\section{Mathemaitcal and CAD Analyses}
+			\subsection{Introduction to the Mathematical Analysis approach}
+			\subsection{Determining the dimensions}
+				\subsubsection{Cylinder diameters}
+				Since the cylindrical base is objected to moments, axial and horizontal forces, it will be treated as a shaft.
+				First design attempt will be aimed to determine the inner and outer diameters of the shaft (cylinder), which can be calculated by:
+				
+				
+				\subsubsection{Bolts diameters}
+				\subsubsection{Upper and lower flanges}
+				(**Equations and clarifying diagrams for the previous 2 points)
+				
+				** Trials of determining the diameter using different materials (Table)
+				
+			
+			\newpage
+			\subsection{Design based on strength}
+			The inverse design method is to have the diameters as inputs, and checking on the allowable shear stress to see if this design is safe or not, according to the used materials ultimate tensile and yield strength.
+			The same equation previously used will be applied here as well, the difference is  the output of the calculations.
+			
+			\newpage
+			\subsection{Vibrations}
+			Vibrations through the body of the base occurred while operating the arm. the intensity of the vibrations rises when it’s operated on a higher mode.
+			The calculations regarding these vibrations are being revised.
+			
+			
+			\newpage
+			\subsection{Introduction to the CAD Analysis approach}
+				Solidworks is used to have a complete CAD model for KR6 r900sixx KUKA robot helping in finding the weight of each link, locating and calculate torque of motors. 
+				
+			\subsection{Complete CAD model}
+				\subsubsection{Searching for a suitable model}			
+				All CAD models in KUKA site or Grab CAD were solid step part not an assembly therefore, any analysis or studies can’t be performed on it. The solution for this issue was done by converting step parts into assembly and solid parts.
+				\subsubsection{Modifications performed on the CAD model}
+				\paragraph{Material and weights}
+				The used model has no specified material and solid from the entire, so the weight of each link. 
+				By selecting the suitable material and adding point masses for each motor and putting them in their locations, the total weight of the robot is achieved.
+				References used to find weights are
+				\begin{enumerate}
+					\item KR6 R900 Sixx motors manual (motors weight)
+					\item Dimensions manual (total weight)
+				\end{enumerate}
+				\paragraph{Spindle}
+				A spindle with its holder is drawn to be the end effector of the robot giving a model for our project 
+				\paragraph{Base extend}
+			
+			\subsection{Motion Analysis}
+				\subsubsection{Finding the axis speed and range of motion}
+				\subsubsection{Applying the simulation}
+				\subsubsection{Solving redundancies constrain }
+				\subsubsection{Results}
+					
+					
+		\newpage
+		\section{Manufacturing}
+			\subsection{Material Selection and manufacturing process}
+			
+			\subsection{Installation}
+				\subsubsection{Fixation method and dimensions}
+				\paragraph{Hole dimensions}
+				\paragraph{Nails dimensions}
+				\paragraph{Different tryouts before reaching the required dimensions}
+				
+				\subsubsection{Testing and initial results}
+			
+	
+	
+	\chapter{KUKA conditioning}
+		\section{Robot Mastering}
+			\subsection{Mastering Methods}
+			\subsubsection{Mastering with EMD}
+				\paragraph{First Mastering}
+				\paragraph{Teach Offset}
+				\paragraph{Check load Mastering with offset}
+			\subsubsection{Mastering with the Dial gauge}
+	\newpage
+		\section{Calibration}
+			\subsection{Defining tool direction}
+			
+			\subsection{Tool calibration}
+				\subsubsection{TCP calibration: XYZ 4-point method}
+				\subsubsection{TCP calibration: XYA Reference method}
+				\subsubsection{Defining the orientation: ABC world method}
+				\subsubsection{Definfing the Orientation: ABC 2-point method}
+				
+			\subsection{Base calibration}
+				\subsubsection{3-point method}
+				\subsubsection{indirect method}
+				
+			\subsection{Fixed tool calibration}
+				\subsubsection{Calibrating an External TCP}
+				\subsubsection{Entering the external TCP numerically}
+		\newpage
+		\section{KUKA software}
+			\subsection{SimPro Setup}
+				\subsubsection{Installation}
+				\subsubsection{Licensing}
+			\subsection{WorkVisual}
+				\subsubsection{Installation}			\subsubsection{LAN connection}
+		
+		
+	\chapter{KRL programming: Basic Experiments}
+		\section{Base calibration}
+		mentioned earlier, used here as an example of how it was implemented.
+		\section{Tool calibration}
+		mentioned earlier, used here as an example of how it was implemented.
+		\section{World Frames}
+		
+		\newpage
+		\section{PROGRAMMER - EXPERT}
+			\subsection{Axis Motion:  PTP LIN CIRC}
+			\subsection{GCode to KRL using inkscape extension (python)}
+			\subsection{Home Position Angle}
+			\subsection{Transportation Angle}
+			\subsection{Angles ABC and their relation to the base}
+			\subsection{XYZ Coordinates of TCP and base (Left hand rule}
+		
+		\newpage	
+		\section{Programming Sequence}
+			\subsection{Manual}
+			\subsection{Expert}
+				\subsubsection{Axis Motion: PTP, LIN, CIRC}
+				\subsubsection{Program loops and drawing objects}
+				\subsubsection{Variables: orientation, speed, … etc.}
+				\subsubsection{A° B° C° Orientation Angles (Euler Angles)}
+				\subsubsection{Reading system variable and changing it over network (openShowVar)}
+		
+	\chapter{Development}
+		\section{Using Kinect to detect approaching objects and to prevent any impact with the working specimen.}
+		Kinect is mainly used because it can display the distances (depths) at which each object is placed.
+		
+		\section{Using Kinect to mimic the motion of the user’s arm.}
+		
+	\chapter{Conclusion}
+		
+%Also bookmarks for references
+
+\end{document}
+	
