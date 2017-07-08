@@ -1,0 +1,77 @@
+\documentclass[12pt,BCOR=1cm,bibliography=totoc]{thesis}
+\pdfminorversion=5 
+\pdfcompresslevel=9 
+\pdfobjcompresslevel=3
+%\usepackage{showframe}
+
+%\KOMAoptions{headings=small}
+%\addtokomafont{disposition}{\rmfamily\mdseries}
+%\renewcommand*{\contentsname}{Table of Contents}
+%\setkomafont{chapterprefix}{\rmfamily\Large\bfseries}
+
+
+% customize chapter format:
+\KOMAoption{headings}{twolinechapter}
+\renewcommand*\chapterformat{\color{blue}{Chapter \thechapter}\vspace{-0.6cm}}%\autodot
+
+% customize dictum format:
+\setkomafont{dictumtext}{\itshape\small}
+\setkomafont{dictumauthor}{\tiny}
+\renewcommand*\dictumwidth{0.5\linewidth}
+\renewcommand*\dictumauthorformat[1]{--- #1}
+\renewcommand*\dictumrule{}
+
+
+\usepackage{float}
+\usepackage{pdfpages}
+
+%*****************************************************************************
+\graphicspath{ {figures/} }
+
+%** new commands ******************************************************
+\include{commands}
+
+%** listings settings ******************************************************
+
+\lstset{basicstyle=\footnotesize\ttfamily,breaklines=true}
+\lstset{framextopmargin=50pt,frame=bottomline}
+\lstset{showstringspaces=false}%do not use "squat-u" symbole for space
+
+\lstdefinelanguage{XML}{ 
+    columns=fullflexible, 
+    basicstyle=\footnotesize\ttfamily, 
+    commentstyle=\ttfamily\color{green!50!black}, 
+    morestring=[s]{"}{"}, 
+        alsoletter={ },
+    morecomment=[s]{?}{?}, 
+    morecomment=[s]{!--}{--}, 
+    morecomment=[s]{!DOCTYPE}{]}, 
+    moredelim=[s][\color{black}]{>}{<}, 
+    moredelim=[s][\bfseries\color{black}]{\ }{=}, 
+    stringstyle=\color{blue}, 
+    identifierstyle=\bfseries\color{violet} 
+} 
+
+\lstdefinelanguage{terCmd}{
+        basicstyle=\footnotesize\ttfamily, 
+    sensitive=false,
+    alsoletter={.},
+    alsoletter={\$},
+    morestring=[s]{"}{"}, 
+    stringstyle=\color{blue}, 
+    morestring=[s]{'}{'}, 
+    %stringstyle=\color{violet}, 
+    moredelim=[s][\color{red}]{<}{>},
+    moredelim=[s][\color{blue}]{[}{]},
+    %  moredelim=[is][\color{orange}]{:}{:},
+    keywords=[10]{roslaunch,model,rospack,find,source,cd,sudo,usermod,chmod},
+    keywordstyle=[10]{\color{magenta}},
+}
+
+\lstset{language=C++,
+    basicstyle=\footnotesize\ttfamily,
+    keywordstyle=\color{blue}\ttfamily,
+    stringstyle=\color{red}\ttfamily,
+    commentstyle=\color{teal}\ttfamily,
+    morecomment=[l][\color{magenta}]{\#}
+}
