@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
+    <_name>Path To KRL</_name>
+    <id>AhmadSaeed</id>
+	<dependency type="executable" location="extensions">kukakrl.py</dependency>
+	<dependency type="executable" location="extensions">inkex.py</dependency>
+
+
+	<param name="passes"       type="decimal"               min="1"      max="10"    _gui-text="Passes:">1</param>	
+    <param name="tab" type="notebook">
+        <page name="misc" _gui-text="Tool ">
+            <param name="tool"       type="enum" _gui-text="Tool :" >
+                <item value="$NULLFRAME">$NULLFRAME</item>
+                <item value="TOOL_DATA[1]">TOOL_DATA[1]</item>
+                <item value="TOOL_DATA[2]">TOOL_DATA[2]</item>
+                <item value="TOOL_DATA[3]">TOOL_DATA[3]</item>
+                <item value="TOOL_DATA[4]">TOOL_DATA[4]</item>
+                <item value="TOOL_DATA[5]">TOOL_DATA[5]</item>
+                <item value="TOOL_DATA[6]">TOOL_DATA[6]</item>
+                <item value="TOOL_DATA[7]">TOOL_DATA[7]</item>
+                <item value="TOOL_DATA[8]">TOOL_DATA[8]</item>
+                <item value="TOOL_DATA[9]">TOOL_DATA[9]</item>
+                <item value="TOOL_DATA[10]">TOOL_DATA[10]</item>
+            </param>
+            <param name="ori-a" type="int"  min="-360"   max="360"   _gui-text="A° Orientation :">180</param>
+            <param name="ori-b" type="int"  min="-360"   max="360"   _gui-text="B° Orientation :">180</param>
+            <param name="ori-c" type="int"  min="-360"   max="360"   _gui-text="C° Orientation :">0</param>
+            <param name="tool-speed"   type="float"   precision="3"   min="0"      max="2"     _gui-text="Work Speed [Feedrate] (m/s):">0.05</param>
+            <param name="travel-speed" type="float"   precision="3"   min="0"      max="2"     _gui-text="Travel Speed (m/s):">0.15</param>
+        </page>
+        <page name="misc2" _gui-text="Base ">
+            <param name="base"         type="enum"    _gui-text="Coordinate System :" >
+                <item value="$WORLD">$WORLD</item>
+                <item value="BASE_DATA[1]">BASE_DATA[1]</item>
+                <item value="BASE_DATA[2]">BASE_DATA[2]</item>
+                <item value="BASE_DATA[3]">BASE_DATA[3]</item>
+                <item value="BASE_DATA[4]">BASE_DATA[4]</item>
+                <item value="BASE_DATA[5]">BASE_DATA[5]</item>
+                <item value="BASE_DATA[6]">BASE_DATA[6]</item>
+                <item value="BASE_DATA[7]">BASE_DATA[7]</item>
+                <item value="BASE_DATA[8]">BASE_DATA[8]</item>
+                <item value="BASE_DATA[9]">BASE_DATA[9]</item>
+                <item value="BASE_DATA[10]">BASE_DATA[10]</item>
+            </param>    
+            <param name="offsetx"      type="float"   precision="1"   min="-999"   max="999"   _gui-text="Origin X Offset (mm):">0</param>
+            <param name="offsety"      type="float"   precision="1"   min="-999"   max="999"   _gui-text="Origin Y Offset (mm):">0</param>
+            <param name="laser-depth"  type="float"   precision="3"   min="-999"   max="999"   _gui-text="Work Z-Depth (mm):">0</param>
+            <param name="travel-depth" type="float"   precision="3"   min="-999"   max="999"   _gui-text="Travel Z-Height (mm):">10</param>
+        </page>
+             
+    </param>
+    <param name="approximation"       type="enum" _gui-text="Approximation Type :" >
+        <item value=" ">None</item>
+        <item value="C_DIS">Distance</item>
+        <item value="C_VEL">Velocity</item>
+		<item value="C_ORI">Orientation</item>
+    </param>
+    <param name="approx-value" type="float"   precision="3" min="-1000"      max="1000"     _gui-text="Approximation Value:">0.5</param>
+	
+    <param name="username" type="string" _gui-text="User Name:">KUKA User</param>
+	<param name="directory" type="string" _gui-text="Directory:"></param>
+	<param name="filename" type="string" _gui-text="Filename:">output.src</param>
+	<param name="add-numeric-suffix-to-filename" type="boolean" _gui-text="Add numeric suffix to filename">true</param>
+    
+	<effect>
+		<effects-menu>
+			<submenu _name="KUKA Tools"/>
+		</effects-menu>
+		<object-type>path</object-type>
+  	</effect>
+
+	<script>
+		<command reldir="extensions" interpreter="python">kukakrl.py</command>
+	</script>
+
+</inkscape-extension>
