@@ -1,0 +1,53 @@
+#!/usr/bin/env python
+import os
+import threading
+import rospy
+from std_msgs.msg import Float32
+from kukavarproxy import *
+
+zuka = KUKA('172.31.1.148')
+
+safeRange = 3500
+limitedSpeed = 10
+fullSpeed = int (zuka.read("$OV_PRO"))
+
+
+speedChanged = False
+
+def openniTracker():
+	global speedChanged
+	while 1:
+		print" LOW SPEED"
+		speedChanged = True
+		zuka.write("$OV_PRO",limitedSpeed)
+		os.system("killall -9 openni_tracker")
+		print"Loading Openni Tracker ..."
+		os.system("rosrun openni_tracker openni_tracker")
+	
+def get_distance(distance):
+	global speedChanged
+	if distance.data < safeRange and not speedChanged:
+		print" LOW SPEED"
+		zuka.write("$OV_PRO",limitedSpeed)
+		speedChanged = True
+
+	if distance.data > safeRange and speedChanged:
+		print" FULL SPEED"
+		zuka.write("$OV_PRO",fullSpeed)
+		speedChanged = False
+
+def main():	
+	lol= rospy.Subscriber("/closestUser", Float32, get_distance)
+	rospy.init_node('zukaSafeOperation', anonymous=True)
+
+	t = threading.Thread(target = openniTracker,args = ())
+	t.start()
+
+	while not rospy.is_shutdown():
+		if lol.get_num_connections() == 0 : 
+			lol.unregister()
+			lol= rospy.Subscriber("/closestUser", Float32, get_distance)
+
+
+if __name__ == "__main__":
+    main()

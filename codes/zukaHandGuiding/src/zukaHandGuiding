@@ -1,0 +1,137 @@
+#!/usr/bin/env python
+import rospy
+import roslib
+import tf
+import time
+from math import *
+from krldriver import *
+
+robot = KUKA('172.31.1.147')
+
+def main():	
+	PAL_MODE(TRUE)
+	VEL_CP(3)
+	VEL_PTP(100)
+	OV_PRO(10)
+	APO(30)
+	BASE(750,0,770,0,0,0)
+	TOOL(0,0,0,0,-90,0) 	
+	#PTP(AXIS,"",0,-50,"",70)
+	#PTP(POS,0,0,0,0,0,0)
+
+	rospy.init_node('ZUKA_Hand_Guiding', anonymous=True)
+	print("Node Initialized.")
+	listener = tf.TransformListener()
+	running = False
+	notificationSent = False
+	user = 1
+	gripState = False
+
+	xcalib = 0
+	ycalib = 0
+	zcalib = 0
+	wcalib = 0
+
+	xRobot = 0
+	yRobot = 0
+	zRobot = 0
+	wRobot = 0
+
+
+	while not rospy.is_shutdown():
+		readings = 0
+		xlist = []
+		ylist = []
+		zlist = []
+		wlist = []
+		zKick = []
+		yKick = []
+
+		while readings < 50:
+			try:	
+				listener.waitForTransform("/torso_%d" %user,"/left_hand_%d" %user, rospy.Time(), rospy.Duration(1))
+				trans, rot = listener.lookupTransform("/torso_%d" %user, "/left_hand_%d" %user, rospy.Time())
+				xlist += [trans[0]*1000]
+				ylist += [trans[1]*1000]
+				zlist += [trans[2]*1000]
+
+				listener.waitForTransform("/openni_depth_frame", "/torso_%d" %user, rospy.Time(), rospy.Duration(1))
+				trans, rot = listener.lookupTransform("/openni_depth_frame", "/torso_%d" %user, rospy.Time())
+				if rot[3] > 0: wlist += [rot[3]*5*180.0/pi]
+				else : wlist += [rot[3]*4.2*180.0/pi]
+				
+				listener.waitForTransform("/torso_%d" %user,"/right_hand_%d" %user, rospy.Time(), rospy.Duration(1))
+				trans, rot = listener.lookupTransform("/torso_%d" %user, "/right_hand_%d" %user, rospy.Time())
+				zKick += [trans[2]*1000]
+				yKick += [trans[1]*1000]
+				readings += 1
+			except (tf.LookupException, tf.ConnectivityException, tf.ExtrapolationException,tf.Exception) :
+				if rospy.is_shutdown(): return
+				user = user + 1
+			 	if user > 5 : user = 1
+			 	print "Trying user", user
+			 	notificationSent = False
+			 	running = False
+			 	
+		x = int(sum(xlist))/len(xlist)
+		y = int(sum(ylist))/len(ylist)
+		z = int(sum(zlist))/len(zlist)
+		w = int(sum(wlist))/len(wlist)
+		zKick = int(sum(zKick))/len(zKick)
+		yKick = int(sum(yKick))/len(yKick)
+
+
+		# HERE GOES THE ALGORITHM
+		if (zKick) < (-350) and yKick > 100 and not running:
+			for i in range(5):
+				print ("Starting in %d" %(5-i))
+				time.sleep(1)
+				if rospy.is_shutdown(): return
+			wcalib = 0
+			running = True	
+			print ("Tracking...")
+			continue
+		
+		elif (zKick) < (-350) and yKick > 100 and running:
+			print ("Tracking has stopped")
+			running = False
+			notificationSent = False
+			time.sleep(2)
+
+		elif (zKick) < (-350) and yKick < 0 and running:
+			if gripState == False: 
+				GRIPPER_OPEN()
+				gripState = True
+			else: 
+				GRIPPER_CLOSE()
+				gripState = False
+			time.sleep(.5)	
+
+		elif running:
+			wRel = w - wcalib
+			yRel = y - ycalib
+			zRel = z - zcalib
+			if wcalib == 0: 
+				wcalib = w
+				ycalib = y
+				zcalib = z
+			else: 
+				# The code 
+				if abs(wRel - wRobot) > 2:
+					wRobot = max(min(169, wRel), (-169))
+				print wRobot , yRel, zRel
+				BASE(350,0,750,0,0,0,0,0,0,(-wRobot))	
+				PTP(POS,-zRel*1.5,0,yRel*1.5,"",0,0)
+				print yKick, zKick	
+			time.sleep(.01)
+		else:
+			if not notificationSent:
+				print ("User %d is active. Waiting for the kick."% user)	
+				notificationSent = True
+
+
+				
+			
+
+if __name__ == "__main__":
+    main()
