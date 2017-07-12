@@ -1,62 +1,93 @@
-%%% German Title page----------------------------------------------------------------------
-%% Angaben zur Standardformatierung des Titels %%%%%%%%%%%%%%%%%%%%%%%%
-\titlehead{\centering\includegraphics[width=0.15\textwidth]{myFrontMatter/figures/zuLogo}
-    \includegraphics[width=0.2\textwidth]{myFrontMatter/figures/engLogo}}
+\begin{titlepage}
+\centering
+  \includegraphics[width=0.15\textwidth]{myFrontMatter/figures/zuLogo} \qquad \includegraphics[width=0.2\textwidth]{myFrontMatter/figures/engLogo}\\
+ {\usekomafont{titlehead}   Zagazig University, Faculty of Engineering,\\
+     Mechatronics Program}
 
-\subject{Zagazig University, Faculty of Engineering, Mechatronics Program}
+    \vskip 8ex
+    {\LARGE\usekomafont{title} ZuKa    \vskip 1ex
+         {\Large Deployment of industrial KUKA robot in CNC machining and visual servoing through Kinect interfacing on ROS}}
+    \vskip 2ex
+     \emph{Graduation project for the degree Bachelor of Science (B.Sc.) submitted to  Mechatronics Program, Faculty of Engineering, Zagazig University, Egypt}
+     
+     \vskip 8ex
+    {\usekomafont{subtitle} by}
+    \vskip 1ex
+    {\usekomafont{author} 
+        Ahmed Emam\\
+        Ahmed Saeed\\
+        Donna Mustafa\\
+        Dua’a Samir\\
+        Hoda Mahmoud\\
+        Reeham Mohamed}
 
-\title{ZuKa\\{\Large Deployment of the industrial KUKA robot in CNC machining and visual servoing through Kinect interfacing on ROS}}
+    \vskip 6ex
+    {\usekomafont{subtitle} Supervisors}
+    \vskip 1ex
+%    \emph{Asst. Prof. Dr.Ing.} {\usekomafont{author}\bfseries Mohammed Nour A. Ahmed}
+%    \vskip 1ex
+%    \emph{Computer and Systems Engineering Dept., Faculty of Engineering, Zagazig University, Zagazig, Egypt}
+%   \vskip 1ex
+%       \emph{Asoc. Prof. Dr.} {\usekomafont{author}\bfseries Ahmed Hamdy Hassanien}
+%   \vskip 1ex
+%   \emph{Mechanical Engineering Dept., Faculty of Engineering, Zagazig University, Zagazig, Egypt}
+%   
+   \begin{tabular}{cc}
+       \emph{Asst. Prof. Dr.Ing.} &  \emph{Asoc. Prof. Dr.}\\ 
+      {\usekomafont{author}\bfseries Mohammed Nour A. Ahmed} &  {\usekomafont{author}\bfseries Ahmed Hamdy Hassanien}\\
+       \emph{Computer and Systems Engineering Dept.}& \emph{Mechanical Engineering Dept.}\\
+       \multicolumn{2}{c}{Faculty of Engineering, Zagazig University, Zagazig, Egypt}
+   \end{tabular} 
 
-\subtitle{a B.Sc. Graduation Project}
-\author{
-Ahmed Emam
-\and{Ahmed Saeed}
-\and{Donna Mustafa}
-\and{Dua’a Samir}
-\and{Hoda Mahmoud}
-\and{Reeham Mohamed}
-}
-
-%\thanks{some foot note text} % entspr. \footnote im Fließtext
-
-%Supervisors
-%
-%Dr.Ing. \textbf{Mohammed Nour Abdel Gwad Ahmed}\\
-%\footnotesize{\itshape 
-%    Computer and Systems Engineering Department,\\
-%    Faculty of Engineering, Zagazig University, Egypt}\\~\\
-%Dr. \textbf{Ahmed Hamdy Hassanien}\\
-%\footnotesize{\itshape ~~ Mechanical Engineering Department, \\
-%    Faculty of Engineering, Zagazig University, Egypt}\\
-%
-
-
-
-
-\publishers{Submitted to The Mechatronics Program, Faculty of Engineering, Zagazig University, Egypt}
-\date{September, 2017}
-
+    \vfill
+    July, 2017
+\end{titlepage}
 %% Rückseite der Titelseite %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\uppertitleback{Graduation Project Report to be submitted to\\
-Zagazig University, faculty of Engineering\\
-in partial fulfillment of the requirements for the degree \\
-Bachelor of Science in Engineering (B.Sc.)\\
-\textcopyright 2017}
+\newpage
+{Graduation Project Report submitted to\\
+    \textbf{Zagazig University, faculty of Engineering, Mechatronics Program}, Zagazig, Egypt\\
+    in partial fulfillment of the requirements for the degree \\
+    Bachelor of Science in Engineering (\textbf{B.Sc.})\\
+    \textcopyright 2017
 
+%    \vspace{1cm}
+    {\footnotesize
+        Copyright \textcopyright 2017 Asst. Prof. Dr.Ing. Mohammed Nour Abdelgwad Ahmed as part of his course work and learning material. All Rights Reserved. 
+        Where otherwise noted, this work is licensed under 
+        \href{https://creativecommons.org/licenses/by-nc-sa/4.0/}{ a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License}.}\\
+    \includegraphics[width=0.15\textwidth]{myFrontMatter/figures/byncsa}}\\
 
-
-\lowertitleback{\textbf{Date of Presentation}\\
-  24. Juni 2015\\~\\
-  
-  \textbf{Supervisors}\\
-Dr.Ing. \textbf{Mohammed Nour Abdel Gwad Ahmed}\\
-\footnotesize{\itshape 
- Computer and Systems Engineering Department,\\
-  Faculty of Engineering, Zagazig University, Egypt}\\~\\
-Dr. \textbf{Ahmed Hamdy Hassanien}\\
-\footnotesize{\itshape ~~ Mechanical Engineering Department, \\
-    Faculty of Engineering, Zagazig University, Egypt}\\
-
-\textbf{Defense Commete}\\
-Prof. Dr. Xyz Wuv\\
-Prof. Dr. Abc Def}
+%    \vspace{2cm}
+{\textbf{Date of Presentation}\\
+    16. July 2017\\
+    
+     {\textbf{Project Team Memebers}\\
+             \noindent\begin{tabular}{ll}
+        Ahmed Emam&        Ahmed Saeed\\
+        Donna Mustafa&        Dua’a Samir\\
+        Hoda Mahmoud& Reeham Mohamed
+            \end{tabular}
+    
+    \textbf{Supervisors}\\
+    Asst. Prof. Dr.Ing. \textbf{Mohammed Nour A. Ahmed}\\
+    {\itshape \footnotesize
+        Computer and Systems Engineering Department,\\
+        Faculty of Engineering, Zagazig University, Egypt}\\~\\
+    Asoc. Prof. Dr. \textbf{Ahmed Hamdy Hassanien}\\
+    {\itshape\footnotesize Mechanical Engineering Department, \\
+        Faculty of Engineering, Zagazig University, Egypt}\\
+    
+    
+    \textbf{Defense Commete}\\
+    \noindent\begin{tabular}{p{3.5in}p{2.5in}}
+Prof. Dr. \textbf{Nabil H. Mostafa}  & \dotfill \\
+\emph{\footnotesize Mechanical Engineering Dept., Faculty of Engineering, Zagazig University} & signature\\[4ex]% adds space between the two sets of signatures
+Asoc. Prof. Dr. \textbf{Mohamed Talat} & \dotfill \\
+\emph{\footnotesize Electric Power Engineering Dept., Faculty of Engineering, Zagazig University} & signature\\[4ex]
+Asst. Prof. Dr.Ing. \textbf{Mohammed Nour A. Ahmed} & \dotfill \\
+\emph{\footnotesize Computer and Systems Engineering Dept., Faculty of Engineering, Zagazig University} & signature\\[4ex]
+Asoc. Prof. Dr. \textbf{Ahmed Hamdy Hassanien} & \dotfill \\
+\emph{\footnotesize Mechanical Engineering Dept., Faculty of Engineering, Zagazig University} & signature
+    \end{tabular}
+\vfill
+{\tiny Revision SVN.198.50.\mydate }

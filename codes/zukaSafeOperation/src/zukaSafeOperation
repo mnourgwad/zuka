@@ -7,8 +7,8 @@ from kukavarproxy import *
 
 zuka = KUKA('172.31.1.148')
 
-safeRange = 3500
-limitedSpeed = 10
+safeRange = 1500
+limitedSpeed = 0
 fullSpeed = int (zuka.read("$OV_PRO"))
 
 
