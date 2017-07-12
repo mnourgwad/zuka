@@ -21,32 +21,26 @@
 \begin{document}
 \pagestyle{empty}
 \include{myFrontMatter/title}
-\include{myFrontMatter/dedication}
-\maketitle 						% Titelei wird erzeugt
+\include{myFrontMatter/dedication.tex}
+%\maketitle
+%------------------------------------------------------------------
 
-\frontmatter %-------------------------------------------------------------
+\frontmatter 
 \pagestyle{fancy}
 
-\include{myFrontMatter/abstractEn}%\cleardoublepage{}
-\include{myFrontMatter/abstractAr}%\cleardoublepage{}
-
+\include{chapters/abstract}%\cleardoublepage{}
+%\input{chapters/abstractAr}%\cleardoublepage{}
 \include{myFrontMatter/acknowledgments}%\cleardoublepage{}
 
 \tableofcontents
 \listoffigures
-%\begin{minipage}[b]{1\linewidth}
-   %\listoftables
-%\end{minipage}
-%\begin{minipage}[b]{1\linewidth}
-     %\listofalgorithms
-%\end{minipage}
 \listoftables
 \listofalgorithms
-
-\mainmatter %-----------------------------------------------------
-\pagestyle{fancy}
 %------------------------------------------------------------------
 
+\mainmatter
+\pagestyle{fancy}
+%------------------------------------------------------------------
 
 \setchapterpreamble[o]{%
     \dictum[Niccolo Machiavelli, \textit{(Italian writer and statesman, Florentine patriot, author of 'The Prince', 1469-1527)}]{%
@@ -121,15 +115,15 @@
 %%\input{chapters/appCameraModel}
 %\chapter{Software Description}\label{ch:softwareDescription}
 %\input{chapters/appsSoftwareDescription}
+%------------------------------------------------------------------
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\backmatter %------------------------------------------------------------------
+\backmatter
 \cleardoublepage{}
 \renewcommand{\nomname}{List of Symbols and Abbreviations}
 \markboth{\nomname}{\nomname}\printnomenclature{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \nocite{*}
 \bibliographystyle{apalike}
-%\bibliography{myPhDreferences,myPublications}
-%\cleardoublepage{}
-%\printindex{} %\cleardoublepage{}
+\bibliography{myReferences}
 \end{document}
