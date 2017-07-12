@@ -1,0 +1,135 @@
+%Report Structure =============================================================
+%Introduction
+%		Chapter 1 Introduction
+%Fundamentals
+%		Chapter 2 State of the Art
+%Contributions
+%		Chapter 3 
+%   Chapter 4 
+%Topic2
+%   Chapter 5 
+%Experiments
+%		Chapter 6 The Experimental Robotic Platform
+%		Chapter 7 Experiments
+%Conclusions
+%		Chapter 8 Conclusions and Future Outlook
+% References
+%==============================================================================
+
+\input{myFinalReportSettings}
+
+\begin{document}
+\pagestyle{empty}
+\include{myFrontMatter/title}
+\include{myFrontMatter/dedication}
+%\maketitle 						% Titelei wird erzeugt
+
+\frontmatter %-------------------------------------------------------------
+\pagestyle{fancy}
+
+\include{myFrontMatter/abstractEn}%\cleardoublepage{}
+\include{myFrontMatter/abstractAr}%\cleardoublepage{}
+
+\include{myFrontMatter/acknowledgments}%\cleardoublepage{}
+
+\tableofcontents
+\listoffigures
+%\begin{minipage}[b]{1\linewidth}
+   %\listoftables
+%\end{minipage}
+%\begin{minipage}[b]{1\linewidth}
+     %\listofalgorithms
+%\end{minipage}
+\listoftables
+\listofalgorithms
+
+\mainmatter %-----------------------------------------------------
+\pagestyle{fancy}
+%------------------------------------------------------------------
+
+
+\setchapterpreamble[o]{%
+    \dictum[Niccolo Machiavelli, \textit{(Italian writer and statesman, Florentine patriot, author of 'The Prince', 1469-1527)}]{%
+        ``There is nothing more difficult to take in hand, more perilous to conduct or more uncertain in its success than to take the lead in the introduction of a new order of things.''}}
+\chapter{Introduction}\label{ch:introduction}
+\input{chapters/intro}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setchapterpreamble[o]{%
+\dictum[Joseph Addison, \textit{(English essayist, poet, and politician, 1672--1719), Spectator, No. 253}]{% source: http://todayinsci.com/A/Addison_Joseph/AddisonJoseph-Quotations.htm
+``It is impossible for us, who live in the latter ages of the world, to make observations in criticism, morality, or in any art or science, which have not been touched upon by others. We have little else left us but to represent the common sense of mankind in more strong, more beautiful, or more uncommon lights.''}\vspace{0.1em}}
+
+\chapter{State of the Art}\label{ch:SotA} %and Related Work
+%\input{chapters/relatedWork}
+%\input{chapters/stateOfArt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setchapterpreamble[o]{%
+    \dictum[Alan Turing, \textit{(British pioneering computer scientist, cryptanalyst,$\cdots$, and philosopher, 1912--1954)}]{%
+        ``A computer would deserve to be called intelligent if it could deceive a human into believing that it was human.''}}
+\chapter{Architecture Overview} \label{ch:architecture}
+%\input{chapters/architecture.tex}
+\cleardoublepage
+%\input{chapters/ExperimentalPlatform}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setchapterpreamble[o]{%
+  \dictum[Abraham Lincoln, \textit{(American 16$^{th}$ President, 1809--1865)}]{%
+    ``Be sure you put your feet in the right place, then stand firm.''}}
+\chapter{Robot Foot Ground Contact} \label{ch:legSoilContact}
+%\input{chapters/ch2StateOfArt/bekker.tex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setchapterpreamble[o]{%
+  \dictum[Stephen Hawking, \textit{(British theoretical physicist, and cosmologist}]{% source: http://todayinsci.com/A/Addison_Joseph/AddisonJoseph-Quotations.htm
+    ``Look up at the stars and not down at your feet. Try to make sense of what you see, and wonder about what makes the universe exist. Be curious.''}}
+\chapter{Short--Range Embodied Terrain Classification} \label{ch:shortRange}
+%\input{chapters/svm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setchapterpreamble[o]{%
+  \dictum[Chuck Norris, \textit{(American martial artist, actor, film producer and screenwriter)}]{%
+    ``I think setting a goal, getting a visual image of what it is you want. You've got to see what it is you want to achieve before you can pursue it.''}}
+\chapter{Long--Range Visual Terrain Classification} \label{ch:visual}
+%\input{chapters/visualClassification}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setchapterpreamble[o]{%
+  \dictum[Dr. Seuss, \textit{(American writer and cartoonist, 1904--1991)}]{%
+    ``You have brains in your head. You have feet in your shoes. You can steer yourself in any direction you choose. You're on your own, and you know what you know. And you are the guy who'll decide where to go.''}}
+\chapter{Path Planning and Following } \label{ch:path}
+%\input{chapters/pathPlanningCameraModel}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setchapterpreamble[o]{%
+  \dictum[Richard P. Feynman, \textit{(American theoretical physicist, 1918--1988)}]{%
+    ``It doesn't matter how beautiful your theory is, it doesn't matter how smart you are. If it doesn't agree with experiment, it's wrong.''}}
+\chapter{Experiments and Results} \label{ch:experiments}
+%\input{chapters/expEmbodied}
+%\cleardoublepage
+%\input{chapters/expPathFollow}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setchapterpreamble[o]{\dictum[George Henry Lewes, \textit{( English philosopher and critic of literature, 1817--1878)}]{The true function of philosophy is to educate us in the principles of reasoning and not to put an end to further reasoning by the introduction of fixed conclusions.}}
+\chapter{Conclusions and Future Outlook} \label{ch:conclusion}
+%\input{chapters/conclusion}
+%\input{chapters/futureWork}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\appendix
+%%\chapter{Camera Calibration, Model, and Configurations}\label{ch:cameraModel}
+%%\input{chapters/appCameraModel}
+%\chapter{Software Description}\label{ch:softwareDescription}
+%\input{chapters/appsSoftwareDescription}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\backmatter %------------------------------------------------------------------
+\cleardoublepage{}
+\renewcommand{\nomname}{List of Symbols and Abbreviations}
+\markboth{\nomname}{\nomname}\printnomenclature{}
+\nocite{*}
+\bibliographystyle{apalike}
+%\bibliography{myPhDreferences,myPublications}
+%\cleardoublepage{}
+%\printindex{} %\cleardoublepage{}
+\end{document}
