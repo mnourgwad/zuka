@@ -6,8 +6,6 @@ import time
 from math import *
 from krldriver import *
 
-robot = KUKA('172.31.1.147')
-
 def main():	
 	PAL_MODE(TRUE)
 	VEL_CP(3)
@@ -16,8 +14,6 @@ def main():
 	APO(30)
 	BASE(750,0,770,0,0,0)
 	TOOL(0,0,0,0,-90,0) 	
-	#PTP(AXIS,"",0,-50,"",70)
-	#PTP(POS,0,0,0,0,0,0)
 
 	rospy.init_node('ZUKA_Hand_Guiding', anonymous=True)
 	print("Node Initialized.")
@@ -97,8 +93,9 @@ def main():
 			running = False
 			notificationSent = False
 			time.sleep(2)
+			rospy.signal_shutdown("User Kick detected.")
 
-		elif (zKick) < (-350) and yKick < 0 and running:
+		elif (zKick) < (-150) and yKick < 0 and running:
 			if gripState == False: 
 				GRIPPER_OPEN()
 				gripState = True
@@ -119,10 +116,10 @@ def main():
 				# The code 
 				if abs(wRel - wRobot) > 2:
 					wRobot = max(min(169, wRel), (-169))
-				print wRobot , yRel, zRel
+				#print wRobot , yRel, zRel
 				BASE(350,0,750,0,0,0,0,0,0,(-wRobot))	
-				PTP(POS,-zRel*1.5,0,yRel*1.5,"",0,0)
-				print yKick, zKick	
+				PTP(POS,-zRel,0,yRel,"",0,0)
+				#print yKick, zKick	
 			time.sleep(.01)
 		else:
 			if not notificationSent:
