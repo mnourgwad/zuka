@@ -1,13 +1,10 @@
-\documentclass{book}
-\usepackage{graphicx}
+%!TEX root = zukaFinalReport.tex
+%!TEX encoding = UTF-8 Unicode
+%==============================================================================
 
-% Title Page
 %Donna Mustafa
 
-\begin{document}
-\chapter{Safety}
 \section{General}
-
 \subsection{Terms used}
 \begin{itemize}
 	\item Work space: Space where the manipulator allowed to move.
@@ -40,45 +37,41 @@
 \end{itemize}
  
 \begin{figure}[h]
-	
-	\caption{Description of KUKA arm}
 	\centering
-	\includegraphics[scale=0.5]{../../../../SAfety/Description_of_KUKA_manipulator}
+	\includegraphics[scale=0.5]{Description_of_KUKA_manipulator}
+    	\caption{Description of KUKA arm}
 \end{figure}
-\newpage
+
 \section{Warnings and notes}
 These warnings are relevant to safety and must be observed.
-
 \begin{figure}[h]
-	
-	\caption{}
 	\centering
-	\includegraphics{../../../../SAfety/warning_and_notes}
+	\includegraphics{warning_and_notes}
+    	\caption{warning and notes}
 \end{figure}
-\newpage
-\section{Workspace,safety and danger zone}
+
+
+\section{Workspace, safety and danger zone}
 Workspaces are to be restricted to the necessary minimum size it must be safeguarded using appropriate safeguards.The safeguard must be situated inside the safety zone. In the case of a stop, the manipulator and external axes are braked and come to a stop within the danger zone which consists of the workspace and the stopping distances of the manipulator.The maximum reach of the robot is 901mm
 \begin{figure}[h]
-	
-	\caption{Working space}
 	\centering
 	\includegraphics[scale=0.6]{workspace}
+    	\caption{Working space}
 \end{figure}
 
-\newpage
 \section{Safety function}
 \begin{itemize}
-	\item Emergency stop is the device must be pressed in the event of a hazardous situation or emergency, The manipulator and any external axes are stopped with a safety stop1.
-	
-	\item Enabling device of the industrial robot are the enabling switches on the
-	KCP.There are 3 enabling switches installed on the KCP which have 3 positions
-	 \begin{itemize}
-	 	\item Not pressed
-	 	\item Center position
-	 	\item Panic position
+    \item Emergency stop is the device must be pressed in the event of a hazardous situation or emergency, The manipulator and any external axes are stopped with a safety stop1.
+   
+    \item Enabling device of the industrial robot are the enabling switches on the
+    KCP.There are 3 enabling switches installed on the KCP which have 3 positions
+    \begin{itemize}
+        \item Not pressed
+        \item Center position
+        \item Panic position
 	 \end{itemize}
+ 
  \item Jog mode is an additional protective equipment where the robot use operating modes T1 and T2 to execute the program.This means that it is necessary to hold down an enabling switch and the Start key in order to execute a program.
  
  \item operator safety is a signal used for interlocking physical safety gate in case of losing the signal during automating operation the manipulator will stop with stop 1.
 \end{itemize}
-\end{document}          
