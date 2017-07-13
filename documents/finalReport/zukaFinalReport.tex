@@ -35,13 +35,12 @@
 \begin{document}
 \pagestyle{empty}
 \include{myFrontMatter/title}
-\include{myFrontMatter/dedication}
 %\maketitle
 %------------------------------------------------------------------
 
 \frontmatter 
 \pagestyle{fancy}
-
+\include{myFrontMatter/dedication}
 \include{chapters/abstract}%\cleardoublepage{}
 %\input{chapters/abstractAr}%\cleardoublepage{}
 \include{myFrontMatter/acknowledgments}%\cleardoublepage{}
@@ -60,7 +59,7 @@
     \dictum[Niccolo Machiavelli, \textit{(Italian writer and statesman, Florentine patriot, author of 'The Prince', 1469-1527)}]{%
         ``There is nothing more difficult to take in hand, more perilous to conduct or more uncertain in its success than to take the lead in the introduction of a new order of things.''}}
 \chapter{Introduction}\label{ch:introduction}
-\input{chapters/intro}
+\input{chapters/introduction}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \setchapterpreamble[o]{%
@@ -71,6 +70,12 @@
 \input{chapters/CADanalysisApproach}
 %\input{chapters/stateOfArt}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Base Settings and CAD analysis}\label{ch:BaseSettingsCADAnalysis} %and Related Work
+\input{chapters/BaseSettingsCADAnalysis}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 
 \setchapterpreamble[o]{%
     \dictum[Alan Turing, \textit{(British pioneering computer scientist, cryptanalyst,$\cdots$, and philosopher, 1912--1954)}]{%
@@ -99,16 +104,16 @@
     ``Look up at the stars and not down at your feet. Try to make sense of what you see, and wonder about what makes the universe exist. Be curious.''}}
 \chapter{Safety} \label{ch:Safety}
 \input{chapters/Safety}
-\cleardoublepage{}
+\cleardoublepage
 \input{chapters/kinectsaftyzone}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%\setchapterpreamble[o]{%
-%  \dictum[Chuck Norris, \textit{(American martial artist, actor, film producer and screenwriter)}]{%
-%    ``I think setting a goal, getting a visual image of what it is you want. You've got to see what it is you want to achieve before you can pursue it.''}}
-%\chapter{Long--Range Visual Terrain Classification} \label{ch:visual}
-%%\input{chapters/visualClassification}
+\setchapterpreamble[o]{%
+  \dictum[Chuck Norris, \textit{(American martial artist, actor, film producer and screenwriter)}]{%
+    ``I think setting a goal, getting a visual image of what it is you want. You've got to see what it is you want to achieve before you can pursue it.''}}
+\chapter{Experiments Guide} \label{ch:Experiments}
+\input{chapters/Experiments}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 %\setchapterpreamble[o]{%
@@ -133,12 +138,11 @@
 %\input{chapters/futureWork}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\appendix
-%%\chapter{Camera Calibration, Model, and Configurations}\label{ch:cameraModel}
-%%\input{chapters/appCameraModel}
-%\chapter{Software Description}\label{ch:softwareDescription}
-%\input{chapters/appsSoftwareDescription}
-%------------------------------------------------------------------
+\appendix
+
+\chapter{Appendices}\label{ch:appendices}
+\input{chapters/appendices}
+------------------------------------------------------------------
 
 \backmatter
 \cleardoublepage
@@ -147,6 +151,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \nocite{*}
+%\renewcommand\bibname{References}
 \input{chapters/references}
 \bibliographystyle{apalike}
 \bibliography{myReferences}
