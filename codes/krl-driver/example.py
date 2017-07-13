@@ -1,13 +1,41 @@
 from krldriver import *
 
-INI(3,100,10,0)
-APO(30)
-OV_PRO(30)
-while 1:
-	# The robot will go from left to write infinitly with 30% of its maximum speed, and 30mm of approximation.
-	PTP(AXIS,-169)
-	PTP(AXIS,169)
+def take():
+	PTP(POS,"","",-857)
+	GRIPPER_CLOSE()
+	PTP(POS,"","",-757)
 
+def drop():
+	PTP(POS,"","",-857)
+	GRIPPER_OPEN()
+	PTP(POS,"","",-757)
+
+def p(n):
+	if n == 1: PTP(POS,-80,-125,-757)
+	if n == 2: PTP(POS,-80,50,-757)
+	if n == 3: PTP(POS,90,50,-757)
+	if n == 4: PTP(POS,90,-125,-757)
+
+distenation = 1
+source = 4
+
+VEL_CP(3)
+VEL_PTP(100)
+OV_PRO(10)
+APO(0)
+BASE(525,0,890,0,0,0)
+TOOL(0,0,0,0,-90,0) 
+PAL_MODE(TRUE)
+
+while 1:
+	p(source)
+	take()
+	p(distenation)
+	drop()
+	distenation -=1
+	source -=1
+	if distenation == 0: distenation = 4
+	if source == 0: source = 4
 
 
 """
@@ -30,7 +58,6 @@ EXAMPLES
 	Other
 		OUT(1,TRUE) 						# Sets output port 1 to TRUE signal 
 		WAIT(.2)							# Wait for 200ms
-		PAL_MODE(TRUE)						# Activates the pallitizing mode, where A4 and A5 don't rotate.
 
 	Auxilliary Functions [Not an original part of KRL]
 		PTP_HOME() 							# Robot's home position
@@ -39,7 +66,7 @@ EXAMPLES
 		INI()								# Sets 	VEL_CP = 3m/s
 													VEL_PTP = 100%
 													OV_PRO = 10%
-													APO = 0
+													APO o= 0
 													TOOL = (0,0,0,0,0,0)
 													BASE = (525,0,890,0,0,0)  [The same position for home of KR6 r900 sixx]
 											  and goes to the PTP(POS,0,0,0,0,0,0) of the Base to initialize the $POS_ACT variable to be 
