@@ -1,21 +1,3 @@
-%Report Structure =============================================================
-%Introduction
-%		Chapter 1 Introduction
-%Fundamentals
-%		Chapter 2 Base settings and CAD analysis
-%Contributions
-%		Chapter 3 KUKA conditioning
-%       Chapter 4 Robot programming
-%Topic2
-%        Chapter 5 
-%Experiments
-%		Chapter 6 The Experimental Robotic Platform
-%		Chapter 7 Experiments
-%Conclusions
-%		Chapter 8 Conclusions and Future Outlook
-% References
-%==============================================================================
-
 \input{myFinalReportSettings}
 
 \usepackage{tcolorbox}
@@ -41,14 +23,14 @@
 \frontmatter 
 \pagestyle{fancy}
 \include{myFrontMatter/dedication}
-\include{chapters/abstract}%\cleardoublepage{}
-%\input{chapters/abstractAr}%\cleardoublepage{}
-\include{myFrontMatter/acknowledgments}%\cleardoublepage{}
+\include{chapters/abstract}
+%\input{chapters/abstractAr}
+\include{myFrontMatter/acknowledgments}
 
 \tableofcontents
 \listoffigures
 \listoftables
-\listofalgorithms
+%\listofalgorithms
 %------------------------------------------------------------------
 
 \mainmatter
@@ -60,86 +42,57 @@
         ``There is nothing more difficult to take in hand, more perilous to conduct or more uncertain in its success than to take the lead in the introduction of a new order of things.''}}
 \chapter{Introduction}\label{ch:introduction}
 \input{chapters/introduction}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%==============================================================================
 
-\setchapterpreamble[o]{%
-\dictum[Joseph Addison, \textit{(English essayist, poet, and politician, 1672--1719), Spectator, No. 253}]{% source: http://todayinsci.com/A/Addison_Joseph/AddisonJoseph-Quotations.htm
-``It is impossible for us, who live in the latter ages of the world, to make observations in criticism, morality, or in any art or science, which have not been touched upon by others. We have little else left us but to represent the common sense of mankind in more strong, more beautiful, or more uncommon lights.''}\vspace{0.1em}}
-
-\chapter{CAD Analysis Approach}\label{ch:CADanalysisApproach} %and Related Work
-\input{chapters/CADanalysisApproach}
-%\input{chapters/stateOfArt}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\chapter{Base Settings and CAD analysis}\label{ch:BaseSettingsCADAnalysis} %and Related Work
-\input{chapters/BaseSettingsCADAnalysis}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
+%Chapter 2: Base Settings and CAD analysis
+%chapter 2 (needs remerge)
 \setchapterpreamble[o]{%
     \dictum[Alan Turing, \textit{(British pioneering computer scientist, cryptanalyst,$\cdots$, and philosopher, 1912--1954)}]{%
         ``A computer would deserve to be called intelligent if it could deceive a human into believing that it was human.''}}
-\chapter{Robotic Operating System (ROS)} \label{ch:ros}
-\input{chapters/ros.tex}
-\cleardoublepage
-%\input{chapters/ExperimentalPlatform}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Base Settings and CAD analysis}\label{ch:BaseSettingsCADAnalysis} %and Related Work
+\input{chapters/BaseSettingsCADAnalysis}
+%==============================================================================
 
+%Chapter 3: KUKA conditioning
+%chapter 3 (already merged)
+\chapter{KUKA conditioning} \label{ch:conditioning}
+\input{chapters/chapter3}
+%==============================================================================
+
+%Chapter 4: Robot Programming
+%chapter 4 (needs remerge)
 \setchapterpreamble[o]{%
-  \dictum[Abraham Lincoln, \textit{(American 16$^{th}$ President, 1809--1865)}]{%
-    ``Be sure you put your feet in the right place, then stand firm.''}}
+    \dictum[Joseph Addison, \textit{(English essayist, poet, and politician, 1672--1719), Spectator, No. 253}]{% source: http://todayinsci.com/A/Addison_Joseph/AddisonJoseph-Quotations.htm
+        ``It is impossible for us, who live in the latter ages of the world, to make observations in criticism, morality, or in any art or science, which have not been touched upon by others. We have little else left us but to represent the common sense of mankind in more strong, more beautiful, or more uncommon lights.''}\vspace{0.1em}}
 \chapter{Robot Programming} \label{ch:programming}
 \input{chapters/RobotProgramming}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%==============================================================================
 
-\chapter{KUKA conditioning} \label{ch:conditioning}
-\input{chapters/KUKAconditioning}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+%Chapter 5: Robotic Operating system( ROS )
+%chapter 5 (already merged)
 \setchapterpreamble[o]{%
-  \dictum[Stephen Hawking, \textit{(British theoretical physicist, and cosmologist}]{% source: http://todayinsci.com/A/Addison_Joseph/AddisonJoseph-Quotations.htm
-    ``Look up at the stars and not down at your feet. Try to make sense of what you see, and wonder about what makes the universe exist. Be curious.''}}
-\chapter{Safety} \label{ch:Safety}
-\input{chapters/Safety}
-\cleardoublepage
-\input{chapters/kinectsaftyzone}
+    \dictum[Stephen Hawking, \textit{(British theoretical physicist, and cosmologist}]{% source: http://todayinsci.com/A/Addison_Joseph/AddisonJoseph-Quotations.htm
+        ``Look up at the stars and not down at your feet. Try to make sense of what you see, and wonder about what makes the universe exist. Be curious.''}}
+\chapter{Robotic Operating System (ROS)} \label{ch:ros}
+\input{chapters/ros}
+%==============================================================================
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+%Chapter 6: Development
+%chapter 6 (haven't been merged)
 \setchapterpreamble[o]{%
-  \dictum[Chuck Norris, \textit{(American martial artist, actor, film producer and screenwriter)}]{%
-    ``I think setting a goal, getting a visual image of what it is you want. You've got to see what it is you want to achieve before you can pursue it.''}}
-\chapter{Experiments Guide} \label{ch:Experiments}
-\input{chapters/Experiments}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%\setchapterpreamble[o]{%
-%  \dictum[Dr. Seuss, \textit{(American writer and cartoonist, 1904--1991)}]{%
-%    ``You have brains in your head. You have feet in your shoes. You can steer yourself in any direction you choose. You're on your own, and you know what you know. And you are the guy who'll decide where to go.''}}
-%\chapter{Path Planning and Following } \label{ch:path}
-%%\input{chapters/pathPlanningCameraModel}
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%\setchapterpreamble[o]{%
-%  \dictum[Richard P. Feynman, \textit{(American theoretical physicist, 1918--1988)}]{%
-%    ``It doesn't matter how beautiful your theory is, it doesn't matter how smart you are. If it doesn't agree with experiment, it's wrong.''}}
-%\chapter{Experiments and Results} \label{ch:experiments}
-%%\input{chapters/expEmbodied}
-%%\cleardoublepage
-%%\input{chapters/expPathFollow}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \dictum[Abraham Lincoln, \textit{(American 16$^{th}$ President, 1809--1865)}]{%
+        ``Be sure you put your feet in the right place, then stand firm.''}}
+\chapter{Development} \label{ch:Development}
+\input{chapters/Development}
+%==============================================================================
+
+%chapter 7 (haven't been merged)
 \setchapterpreamble[o]{\dictum[George Henry Lewes, \textit{( English philosopher and critic of literature, 1817--1878)}]{The true function of philosophy is to educate us in the principles of reasoning and not to put an end to further reasoning by the introduction of fixed conclusions.}}
 \chapter{Conclusions and Future Outlook} \label{ch:conclusion}
-%\input{chapters/conclusion}
-%\input{chapters/futureWork}
+\input{chapters/closure}
+%==============================================================================
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \appendix
-
 \chapter{Appendices}\label{ch:appendices}
 \input{chapters/appendices}
 ------------------------------------------------------------------
