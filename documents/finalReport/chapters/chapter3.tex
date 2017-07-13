@@ -84,17 +84,15 @@
 	Calibration offers higher positioning accuracy for offline programmed robots. Accuracy means that the real position of the robot end effector corresponds better to the actual position calculated from the robot’s mathematical model. In the case of offline programming, pose accuracy is considered an important performance criteria.
 		
 	The calibration method used in out project is the first; using a predefined and built-in calibration program, which can be performed through different procedures in the KUKA platform, varying for tool and base calibration. For base calibration, these procedures are 3-point method, indirect method and Numeric input, and for tool calibration the procedures are XYZ 4-point method and XYZ reference method, both for TCP, ABC 2-point method and Numeric input. For the purpose of our project, the applied calibration procedures for both tool and base calibration were XYZ 4-point method and 3-point method respectively.
-		
+
 		\subsection{Tool calibration using XYZ 4-point procedure}
-	
-		
-	
-
-	%	\begin{minipage}{0.5\textwidth}
 			The TCP of the tool to be calibrated is moved to a reference point from four different directions. The reference point can be freely selected. The robot controller calculates the TCP from the different flange positions. These four directions must be sufficiently different from one another (similar to the positions shown in the provided pictures).
-\includegraphics[scale=1]{calibration1}
-
-		
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.7\linewidth]{calibration1}
+                \caption{Tool calibration using XYZ 4-point procedure}
+            \end{figure}
+        
 		\paragraph{Precondition}
 		\begin{itemize}
 			\item A previously calibrated tool is mounted on the mounting flange.
@@ -270,7 +268,7 @@
 				\item It is preferred to set the starting IP address similar to that of the KRC4 (172.31.147) to avoid conflicts. Network gateway value is (172.31.1.1) and subnet mask (255.255.0.0), all other settings shall remain unchanged.
 				
 				\begin{center}
-					\includegraphics[scale=0.37]{network1}
+					\includegraphics[width=0.9\textwidth]{network1}
 				\end{center}
 				
 		
@@ -280,7 +278,7 @@
 				fig6
 				
 				\begin{center}
-				\includegraphics[scale=0.37]{network2}
+					\includegraphics[width=0.7\textwidth]{network2}
 				\end{center}
 				
 				\item The connection is now established and can be verified by checking the router LEDs
@@ -293,7 +291,7 @@
 
 
 	\begin{center}
-	\includegraphics[scale=0.25]{simpro1}
+        \includegraphics[width=0.9\textwidth]{simpro1}
 	\end{center}
 	 
 	 \paragraph{Requirements}
@@ -337,7 +335,7 @@
  						\item On the website, choose Manual Licensing, upload the request file and confirm.
  						
  						\begin{center}
-						\includegraphics[scale=0.35]{simpro2}
+                 	\includegraphics[width=0.9\textwidth]{simpro2}
  						\end{center}
  					
  					
@@ -345,9 +343,10 @@
  						\item The license should be activated.
  						\item Download the license (.dat) file and click Finish. Please complete the installation steps of the license server before proceeding with the next steps.
  						\item The license (.dat) file should be loaded into the license server, not the KUKA.Sim Pro interface, in order to complete the activation process. 
- 						
-						\includegraphics[scale=0.37]{simpro3}
-						 						
+                         \begin{center}
+                 	\includegraphics[width=0.9\textwidth]{simpro3}
+                         \end{center}
+
  						\item After this process is completed, the network server interface should appear as follows
  					\end{enumerate}
  				
@@ -392,14 +391,10 @@
  		\newpage	
  		\subsubsection{Gripper connection}
  		The gripper is connected to the air supply through the Air 1 port located on link 3 (The port is shown in the following picture). This port is connected internally to Air 1 port on the back of the robot arm, which in turn is connected with the air compressor.
- 		\newline
- 			\begin{minipage}{0.5\textwidth}	
- 			\includegraphics[scale=0.05]{gripper1}
- 		\end{minipage} \hfill
- 		\begin{minipage}{0.6\textwidth}
- 			\includegraphics[scale=0.6]{gripper2}
- 		\end{minipage}
- 		
+\begin{center}
+    \includegraphics[width=0.45\textwidth]{gripper1}
+    \includegraphics[width=0.5\textwidth]{gripper2}
+\end{center}
 
  		\bigskip
  		In order for these ports to be operative, the connection between the ports and the controller must be activated, this is performed using mapping. Mapping can be simply described as the process of creating a link or a connection between ports on the robot arm and inner components in the controller in order to use them in control purposes, in our case operating the gripper. Mapping is performed through WorkVisual through the steps mentioned below.
@@ -417,7 +412,7 @@
  				You should have something like on image below. 
  			\end{enumerate}
  		\begin{center}
- 			\includegraphics[scale=0.5]{gripper3}...
+ 			\includegraphics[scale=0.55]{gripper3}...
  		\end{center}
  	Six valves are mapped to ports:
  	\newline

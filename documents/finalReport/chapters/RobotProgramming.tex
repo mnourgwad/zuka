@@ -15,7 +15,7 @@ The following Cartesian coordinate systems are defined in the robot controller:
 	\item [TOOL Coordinate System]
 	a Cartesian coordinate system which is located at the tool center by default, the origin of the TOOL coordinate system is located at the flange center point. The TOOL coordinate system is offset to the tool center point by the user
 \end{description}
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering
 \includegraphics[scale=0.7]{kuka_coordinate_system.jpg}
 	\caption{KUKA robot coordinate systems}
@@ -72,41 +72,28 @@ Character & CHAR    & character             & ASCII character                & C
 \newpage
 
 \large {\textbf {Structure Types}}
-
 \begin{itemize}
-
-	\item AXIS: A1 to A6 are angle values (rotational axes) or translation values (translational axes)
-		\vspace{.2cm}
-		\newline
-	\fbox{\begin{minipage}{32em}
+	\item AXIS: A1 to A6 are angle values (rotational axes) or translation values (translational axes)\\
+	\fbox{\begin{minipage}{25em}
 			\centering
 			{Axis: A1 .., A2 .., A3 .., A4, A5 .., A6 .. }
 		\end{minipage}
 	}
 \vspace{.2cm}
-	\item FRAME: X, Y, and Z are space coordinates, while A, B, and C are the orientation of the coordinate system.
-		\vspace{.02cm}
-	\newline
-
-	\fbox{\begin{minipage}{32em}
+	\item FRAME: X, Y, and Z are space coordinates, while A, B, and C are the orientation of the coordinate system.\\
+    \fbox{\begin{minipage}{25em}
 			\centering
 			{FRAME: X .., Y .., Z .., A .., B .., C .. }
 		\end{minipage}
 	}
-\newline
 
-\item POS and E6POS:  S (Status) and T (Turn) define axis positions unambiguously
-\vspace{.2cm}
-\newline
-	\fbox{\begin{minipage}{32em}
+\item POS and E6POS:  S (Status) and T (Turn) define axis positions unambiguously\\
+	\fbox{\begin{minipage}{25em}
 		\centering
 		{POS: X .., Y .., Z .., A .., B .., C .., S ..., T }
 	\end{minipage}
-	
 }
 \end{itemize}
-
-\vspace{0.05cm}
 
 	\section{Motion Programming}
 \subsection{Motion Types}
@@ -115,52 +102,49 @@ The robot can move in various motion types. Paths are created according to the o
 	   The robot guides the TCP along the fastest path to the end point. The fastest path is generally not the shortest path and is thus not a straight line. The first motion in the program must be PTP as status and turns are only evaluated here.
 	   The coordinates of the end point are absolute.
 	   \paragraph{characteristics}
-	   
-	  
 	   \begin{itemize}
 	   	\item smooth motion
 	   	\item Robot can move from start to end singularity free. As long as both the starting and ending points are in the working envelope, the robot will get to the end point without collision or sudden movement. 
 	   	\item	Control is much simpler than continuous path control. 
 	   \end{itemize}
-   \begin{figure}[h]
+   \begin{figure}[H]
    	\caption{PTP Motion}
    	\centering
-   	\includegraphics[scale=0.9]{ptp.png}
+   	\includegraphics[scale=0.8]{ptp.png}
    \end{figure} 
-	   
- \subsubsection{CP motion}
+ \subsection{CP motion}
  \paragraph{LIN Motion}
  Motion at a defined velocity and acceleration along a straight line.  This motion requires the programmer to “teach” one point.  The robot uses the point defined in the previous move as the start point and the point defined in the current command as the end point and interpolates a straight line in between the two points.
- 
- \begin{figure}[h]
- 	\caption{LIN Motion}
+ \begin{figure}[H]
  	\centering
- 	\includegraphics[scale=0.9]{LINmotion.png}
+ 	\includegraphics[scale=0.8]{LINmotion.png}
+      	\caption{LIN Motion}
  \end{figure}
+
 \paragraph{CIRC Motion}
 Motion at a defined velocity and acceleration along a circular path or a portion of a circular path.  This motion requires the programmer to “teach” two points, the mid-point and the end point.  Using the start point of the robot (defined as the end point in the previous motion command) the robot interpolates a circular path through the mid-point and to the end point.
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering
-	\caption{CIRC Motion}
-	\includegraphics[scale=0.9]{CIRCmotion.png}
+	\includegraphics[scale=0.8]{CIRCmotion.png}
+    	\caption{CIRC Motion}
 \end{figure} 
+
 \subsection{Approximate Positioning}
 Approximate positioning of motion means that the next programmed point will not be exactly reached. This can help to shorten cycle times
- \begin{figure}[h]
-	\centering
-	\includegraphics[scale=0.9]{approximateAdv.png}
-    \caption[Speed Profiles]{Speed Profile: a) If all points approached exactly and b)In  case of approximate positioning of the points}
-\end{figure}
-\begin{figure}[h]
-	\centering
-	\includegraphics[scale=0.9]{apppos.png}
-    	\caption{Approximate positioning of an auxiliary points}
-\end{figure}
 
 \subsubsection{PTP-PTP approximate positioning }
 For the purposes of PTP approximate positioning,the controller calculates the distances the axes are to move in the approximate positioning range, and plans velocity profiles for each axis which ensure tangential transition from the individual instructions to the approximate positioning contour.
-\vspace{0.3cm} 
-\newline System Variable, \textdollar APO.CPTP enables the start of approximate positioning to be specified as a percentage of these maximum values.
+ \begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.7]{approximateAdv.png}
+    \caption[Speed Profiles]{Speed Profile: a) If all points approached exactly and b)In  case of approximate positioning of the points}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.8]{apppos}
+    \caption{Approximate positioning of an auxiliary points}
+\end{figure}
+ System Variable, \textdollar APO.CPTP enables the start of approximate positioning to be specified as a percentage of these maximum values.
 The approximate positioning of a point is displayed in the PTP command by adding the key word C\_PTP: 
 \begin{lstlisting}[language=terCmd]
 $ APO.CPTP = 80
@@ -172,17 +156,13 @@ The greater this value the, the more path is rounded.
 \paragraph{Status and Turns}
 The position of x,y,z and orientation A,B,C values of TCP are not sufficient to define the robot position ,as different axis positioning  are possible for the same TCP .
 Status and turns serve to define the position that can be achieved with different axis positions.
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.9]{ST.png}
+	\includegraphics[scale=0.9]{ST}
     	\caption{Same TCP, different axis position}
 \end{figure}
 \subsection{User Programming}
 Inline forms are available in the KSS for frequently used instruction. They simplify programming and facilitates user interface with controller without the need of knowing detail information about KUKA programming Language
 
  \subsection{Expert Programming}
- In the Expert interface, can achieve advanced programming using the KRL programming language and perform complex application programs including subprograms, interrupt programming, loops, and program branches. 
- 
-
-%\clearpage
-%\end{document}
+ In the Expert interface, can achieve advanced programming using the KRL programming language and perform complex application programs including subprograms, interrupt programming, loops, and program branches.
