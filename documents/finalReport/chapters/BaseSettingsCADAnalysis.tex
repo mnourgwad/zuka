@@ -126,7 +126,7 @@ Thus, by comparing the previous values of resulting shear stress to the minimum 
 
 \bigskip
 
-\paragraph{Bolts’ diameters}
+\subsubsection{Bolts’ diameters}
 \begin{itemize}
 	\item Lower flange
 \end{itemize}
@@ -284,7 +284,7 @@ For the ribs to be welded, the base needs to be cleaned of any accumulated rust,
 
 The following steps clarifies the process of installing the robot base:
 \begin{enumerate}
-	\item The exact location of the base is chosen according to the safe operating range of the robot, mentioned in the KR AGILUS six specification manual.
+	\item The exact location of the base is chosen according to the safe operating range of the robot, mentioned in the KR AGILUS sixx specification manual.
 	\item Remove the ceramic plate. The number of plates removed depends on the area of the base and the ceramic plate itself, in our case, only one plate was removed.
 	\item Scrape the sand and cement layers beneath the ceramic until you reach the concrete, it can be recognized when a layer of gravels appears.
 	\item Drill the holes, in which the dowel rods will be placed, in the predesigned positions in the concrete. For this design, seven holes were drilled, however, the number of dowels depends on the design.
@@ -314,49 +314,61 @@ The following steps clarifies the process of installing the robot base:
 For the purpose of our study, SolidWorks was used as a CAD software, as it contains solid modeling, motion studies, Simulation PhotoView 360, e-drawing and many other features that were used to obtain a complete CAD model for KR6 r900 sixx KUKA arm. 
 \newline SolidWorks simulation is used to make a stress and strain analysis on designed base model to have a verification on the calculated dimensions of the base before starting fabricating it. Static study is used to perform this analysis as we use maximum loads acting on foundation base 
 
-\paragraph{Material properties}
-The mechanical properties of the material used to fabricate the base
+
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.7]{material_properties}
+	\caption{Solidworks definition for the material mechanical properties.}
 \end{figure}
 
 
-\paragraph{Load and fixture}
-It represent the fixed flange and the reaction force act on it in x,y and z axes.The used forces and torque acting on the foundation to perform the analysis.
+
 \begin{figure}[H]
 	
 	\centering
 	\includegraphics[scale=0.7]{load_And_fixture}
+	\caption{Solidworks model reactions acting on the flange in x, y, and z.} 
 \end{figure}
+
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.7]{load}
+	\caption{Solidworks representation for different loads acting on the whole cylinder} 
 \end{figure}
-
-\paragraph{Mesh information}
-calculating size of selected element and tolerance between them to find the total number of elements and nodes to apply the analysis on it.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.6]{mesh}
+	\includegraphics[scale=0.6]{mesh3}
+	\caption{Mesh information obtained from Solidworks} 
 \end{figure}
-
-\begin{figure}[H]
-\centering
-	\includegraphics[scale=0.6]{mesh2}
-\end{figure}
-
-\paragraph{Study results}
-stresses on the base due to the acting loads.The maximum stress is 10.34 $N$/$m^{2}$ at node 546 and the minimum stress is 6.8 $N$/$m^{2}$ at node 5564. Strain on the base due to the acting loads.The maximum strain is 7.56 at element 3828 and the minimum strain is 6.58 at element 3189. Displacement of the base due to this forces is 2.7mm maximum.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.6]{stress}
-	\includegraphics[scale=0.59]{strain}
-	\includegraphics[scale=0.597]{Displacement}
+	\includegraphics[scale=0.45]{zstress}
+	\caption{Solidworks representation for stresses acting on the base.} 
 \end{figure}
+\begin{center}
+	The maximum stress is 10.34 $N$/$m^{2}$ and the minimum stress is 6.8 $N$/$m^{2}$ .
+\end{center}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.45]{zstrain}
+	\caption{Solidworks representation for the base strain.} 
+\end{figure}
+\begin{center}
+	The maximum strain is 7.56 and the minimum strain is 6.58.
+\end{center}
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.45]{zDisplacement}
+	\caption{Solidworks representation for displacement at maximum loading.} 
+\end{figure}
+\begin{center}
+	 Displacement of the base due to this forces is 2.7mm at maximum.
+\end{center}
+
 
 \newpage
 \section{2.4 CAD Analysis Approach}
