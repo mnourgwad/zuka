@@ -6,9 +6,15 @@
 % Reeham Mohamed Ibrahim
 %\begin{document}
 %	\begin{chapter}{Chapter 2: Base Settings and CAD analysis}
-		\section{Mathematical and CAD analysis}
-A solid, strong base was required for a robust and free of vibrations motion of the robot. After discussing different base settings, a simple design that consists of a cylindrical body, that will support the robot, with upper and lower flanges, was chosen.
-\vspace{0.5 cm}
+A solid, strong base is required for a robust and free of vibrations motion of the robot. This includes performing mathematical calculations based on the robot’s weight and forces to obtain the optimal dimensions and weight for the base, besides performing CAD studies on the manipulator’s body to support the results of the mathematical analysis. 
+
+After discussing different base settings, a simple design that consists of a cylindrical body, that will support the robot, with upper and lower flanges, was chosen.
+
+%In order to calculate the main dimensions of the base, we have followed two different procedures: the first is to use the given forces and moments found in the KUKA manuals with the mechanical design equations to get the dimensions of each part of the base, and the second is to 
+		
+\section{Mathematical and CAD analysis}
+
+%\vspace{0.5 cm}
 \paragraph{Base Structure}
 The base body is mainly constructed of:
 \begin{enumerate}
@@ -257,16 +263,13 @@ Several materials can be used to manufacture the body of the base, such as AISI 
 
 
 The calculations performed on this material are proven to be safe and suitable to our designed base geometry. 
-\vspace{0.2 cm}
 \newline The squared, upper and lower flanges are made of a 15mm thick steel-37 sheet, and holes were drilled in the designated locations shown in the sketches below. The flanges are then welded to the cylindrical body of the base. It’s worth mentioning that the dimensions of the manufactured base are larger than those calculated, this is due to different manufacturing and safety purposes, the final dimensions manufactured are illustrated below.
 \begin{figure}[H]
 \begin{center}
-	\includegraphics[scale=0.5]{BaseDim}
-	\includegraphics[scale=0.5]{BaseDim2}
-	\caption{Final dimensions manufactured base}
+	\includegraphics[scale=1]{BaseDim}
+	\caption{Final dimensions for the base.}
 \end{center}
 \end{figure}
-
 
 For the ribs to be welded, the base needs to be cleaned of any accumulated rust, it is then taken to undergo different machining steps, using a lathe machine. Next, it is painted in black to match the robot colors.
 \newline \figurename{1.4} illustrates different stages of manufacturing.
@@ -296,20 +299,17 @@ The following steps clarifies the process of installing the robot base:
 	\item Mount the base, then move the robot carefully until it’s placed on it in the right orientation.
 \end{enumerate}
 
-\figurename{1.5} illustrates different stages of the previously explained installation process.
 
 \begin{figure}[H]
 \begin{center}
-\includegraphics[scale=0.098]{MoldedConcrete}	
-\includegraphics[scale=0.08]{FirstFlange}
+\includegraphics[scale=0.08]{MoldedConcrete}	
+\includegraphics[scale=0.065]{FirstFlange}
 \includegraphics[scale=0.08]{MountedBase}
-\caption{Base Installation}
+\caption{Different stages of the Base installation process}
 \end{center}
 \end{figure}
 
 
-
-\newpage
 \subsubsection{CAD Analysis Performed on Base}
 For the purpose of our study, SolidWorks was used as a CAD software, as it contains solid modeling, motion studies, Simulation PhotoView 360, e-drawing and many other features that were used to obtain a complete CAD model for KR6 r900 sixx KUKA arm. 
 \newline SolidWorks simulation is used to make a stress and strain analysis on designed base model to have a verification on the calculated dimensions of the base before starting fabricating it. Static study is used to perform this analysis as we use maximum loads acting on foundation base 
@@ -330,16 +330,16 @@ For the purpose of our study, SolidWorks was used as a CAD software, as it conta
 	\caption{Solidworks model reactions acting on the flange in x, y, and z.} 
 \end{figure}
 
+%%
+%%\begin{figure}[H]
+%	\centering
+%	\includegraphics[scale=0.7]{load}
+%	\caption{Solidworks representation for different loads acting on the whole cylinder} 
+%\end{figure}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.7]{load}
-	\caption{Solidworks representation for different loads acting on the whole cylinder} 
-\end{figure}
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[scale=0.6]{mesh3}
+	\includegraphics[scale=0.8]{mesh3}
 	\caption{Mesh information obtained from Solidworks} 
 \end{figure}
 
@@ -371,7 +371,7 @@ For the purpose of our study, SolidWorks was used as a CAD software, as it conta
 
 
 \newpage
-\section{2.4 CAD Analysis Approach}
+\section{CAD Analysis Approach}
 
 In Simulation and Analysis, you can test your designed product in real environment.In simulation process the model can be tested against parameters like static and dynamic response, fluid dynamic, heat transfer. It also supports thermal, fatigue, structural and motion analysis. 
 \newline In our project, SolidWorks is used to obtain a CAD model for KR6 r900 sixx and to perform a motion analysis study on the model. In addition to designing a base to fix the robot arm, perform a stress analysis and creating an animation video of the model’s motion.
