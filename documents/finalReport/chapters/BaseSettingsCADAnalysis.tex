@@ -8,11 +8,13 @@
 %	\begin{chapter}{Chapter 2: Base Settings and CAD analysis}
 A solid, strong base is required for a robust and free of vibrations motion of the robot. This includes performing mathematical calculations based on the robot’s weight and forces to obtain the optimal dimensions and weight for the base, besides performing CAD studies on the manipulator’s body to support the results of the mathematical analysis. 
 
-After discussing different base settings, a simple design that consists of a cylindrical body, that will support the robot, with upper and lower flanges, was chosen.
+After discussing different base settings, a simple design that consists of a cylindrical body, that will support the robot, with upper and lower flanges, was chosen. We then went through designing, simulating, and validating our calculations before manufacturing and installing the base.
+
+
 
 %In order to calculate the main dimensions of the base, we have followed two different procedures: the first is to use the given forces and moments found in the KUKA manuals with the mechanical design equations to get the dimensions of each part of the base, and the second is to 
 		
-\section{Mathematical and CAD analysis}
+\section{Mathematical Design}
 
 %\vspace{0.5 cm}
 \paragraph{Base Structure}
@@ -105,11 +107,13 @@ where:
 \textit{The key is a machine element, that connects a rotating machine element to the shaft. It’s mainly used to prevent relative rotation between the two parts. A keyway is a slot in the shaft and the machine’s rotating element, in which the key is seated. In our case, there are no keyways used, because the base is built to be held stationary.}
 \vspace{0.3 cm}
 \newline Using the following values of loads acting on the foundation mentioned in the KR AGILUS specification manual:
-\begin{figure}[H]
+\begin{table}[H]
 \begin{center}
 	\includegraphics[scale = 0.95]{Loads}
 \end{center}	
-\end{figure}
+\caption{Loads acting on the foundation}
+\label{table:3}
+\end{table}
 
 Using steel A37 with the following specifications:
 \begin{itemize}
@@ -122,11 +126,13 @@ $$ \tau_{all} = 0.3 (235) = 70.5 MPa $$
 $$ \tau_{all} = 0.18 (360) = 64.8 MPa $$
 \vspace{0.3 cm}
 \newline The following table shows the different values of diameters available in market, along with the corresponding resulting shear stress:
-\begin{figure}[H]
+\begin{table}[H]
 	\begin{center}
 		\includegraphics[scale = 0.95]{CalculationsResults}
 	\end{center}	
-\end{figure}
+\caption{Commercially available diameters and their resulting shear stress}
+\label{table:4}
+\end{table}
 
 Thus, by comparing the previous values of resulting shear stress to the minimum value of the maximum allowable shear stress the material can withstand, 64.8 MPa, we find that any of the alternatives would be suitable for manufacturing the cylinder.
 
@@ -250,85 +256,27 @@ The ribs are made of the same sheet of which the flanges are made of, with a thi
 
 \newpage
 
-\subsection{Base Manufacturing \& Installation }
-
-\subsubsection{Manufacturing}
-
-Several materials can be used to manufacture the body of the base, such as AISI 1010 \& AISI 1010 carbon steel, SAE 304 stainless steel, etc., all of which the mechanical properties are predefined. However, the available material in the market was steel 37, which has the following mechanical specifications:
-
-\begin{itemize}
-	\item[--] Yield Strength: $\sigma_{y} = 235 MPa$
-	\item[--] Ultimate Tensile Strength: $\sigma_{u} = 360 MPa$
-\end{itemize}
-
-
-The calculations performed on this material are proven to be safe and suitable to our designed base geometry. 
-\newline The squared, upper and lower flanges are made of a 15mm thick steel-37 sheet, and holes were drilled in the designated locations shown in the sketches below. The flanges are then welded to the cylindrical body of the base. It’s worth mentioning that the dimensions of the manufactured base are larger than those calculated, this is due to different manufacturing and safety purposes, the final dimensions manufactured are illustrated below.
-\begin{figure}[H]
-\begin{center}
-	\includegraphics[scale=1]{BaseDim}
-	\caption{Final dimensions for the base.}
-\end{center}
-\end{figure}
-
-For the ribs to be welded, the base needs to be cleaned of any accumulated rust, it is then taken to undergo different machining steps, using a lathe machine. Next, it is painted in black to match the robot colors.
-\newline \figurename{1.4} illustrates different stages of manufacturing.
-
-\begin{figure}[H]
-\begin{center}
-	\includegraphics[scale=0.055]{WeldedFlanges}
-	\includegraphics[scale=0.04]{Lathe}
-	\includegraphics[scale=0.049]{PaintedBase}
-	\caption{Manufacturing and Machining of the base}
-\end{center}
-\end{figure}
-
-\subsubsection{Installation}
-
-The following steps clarifies the process of installing the robot base:
-\begin{enumerate}
-	\item The exact location of the base is chosen according to the safe operating range of the robot, mentioned in the KR AGILUS sixx specification manual.
-	\item Remove the ceramic plate. The number of plates removed depends on the area of the base and the ceramic plate itself, in our case, only one plate was removed.
-	\item Scrape the sand and cement layers beneath the ceramic until you reach the concrete, it can be recognized when a layer of gravels appears.
-	\item Drill the holes, in which the dowel rods will be placed, in the predesigned positions in the concrete. For this design, seven holes were drilled, however, the number of dowels depends on the design.
-	\item Make a mixture of sand, gravels, cement and anabond adhesive agent to mold a new concrete layer, and keep mixing until it’s consistent.
-	\item Pour in the concrete mixture on top of the pre-existent one, while the dowels are placed, and wait for 2 days to ensure that it’s completely solidified.
-	\item Remove the dowels and start screwing the bolts.
-    \item Start mounting the first flange. Use a bubble level to check if it lies in a perfectly horizontal position, if not, you must scrape the newly molded concrete layer until it’s even. 
-	\textit{\newline Note: Even out the newly molded concrete once it dries, this would help you to avoid such issues in further steps.}
-	\item Mount the base, then move the robot carefully until it’s placed on it in the right orientation.
-\end{enumerate}
-
-
-\begin{figure}[H]
-\begin{center}
-\includegraphics[scale=0.08]{MoldedConcrete}	
-\includegraphics[scale=0.065]{FirstFlange}
-\includegraphics[scale=0.08]{MountedBase}
-\caption{Different stages of the Base installation process}
-\end{center}
-\end{figure}
-
-
-\subsubsection{CAD Analysis Performed on Base}
+\section{CAD Analysis and Simulation}
 For the purpose of our study, SolidWorks was used as a CAD software, as it contains solid modeling, motion studies, Simulation PhotoView 360, e-drawing and many other features that were used to obtain a complete CAD model for KR6 r900 sixx KUKA arm. 
 \newline SolidWorks simulation is used to make a stress and strain analysis on designed base model to have a verification on the calculated dimensions of the base before starting fabricating it. Static study is used to perform this analysis as we use maximum loads acting on foundation base 
 
 
-\begin{figure}[H]
+\begin{table}[H]
 	\centering
 	\includegraphics[scale=0.7]{material_properties}
-	\caption{Solidworks definition for the material mechanical properties.}
-\end{figure}
+	\caption{SolidWorks definition for the material mechanical properties.}
+	\label{table:5}
+\end{table}
 
 
 
-\begin{figure}[H]
+\begin{table}[H]
 	
 	\centering
 	\includegraphics[scale=0.7]{load_And_fixture}
 	\caption{Solidworks model reactions acting on the flange in x, y, and z.} 
-\end{figure}
+	\label{table:6}
+\end{table}
 
 %%
 %%\begin{figure}[H]
@@ -337,12 +285,13 @@ For the purpose of our study, SolidWorks was used as a CAD software, as it conta
 %	\caption{Solidworks representation for different loads acting on the whole cylinder} 
 %\end{figure}
 
-\begin{figure}[H]
+\begin{table}[H]
 	\centering
 	\includegraphics[scale=0.8]{mesh3}
 	\caption{Mesh information obtained from Solidworks} 
-\end{figure}
-
+	\label{table:7}
+\end{table}
+\newpage
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.45]{zstress}
@@ -371,12 +320,11 @@ For the purpose of our study, SolidWorks was used as a CAD software, as it conta
 
 
 \newpage
-\section{CAD Analysis Approach}
+\section{Validation of Design}
 
-In Simulation and Analysis, you can test your designed product in real environment.In simulation process the model can be tested against parameters like static and dynamic response, fluid dynamic, heat transfer. It also supports thermal, fatigue, structural and motion analysis. 
-\newline In our project, SolidWorks is used to obtain a CAD model for KR6 r900 sixx and to perform a motion analysis study on the model. In addition to designing a base to fix the robot arm, perform a stress analysis and creating an animation video of the model’s motion.
+In simulation process the model can be tested against parameters like static and dynamic response. Instead of using the forces mentioned in the manuals, we modified a CAD model for KR6 r900 sixx to include all the effective masses, then performed a motion analysis study on the model when it's fixed on the base. 
 
-\subsection{Complete CAD Model}
+\subsection{Making a Complete CAD Model}
 
 \subsubsection{Searching for a suitable model}
 All CAD models for KR6 r900 sixx on KUKA website or GrabCAD were step imported parts which are treated as a one body where joints can’t rotate therefore, motion study can’t be performed because it was impossible to add motors at the robot joints. The solution for this issue was obtained by converting step parts into assembly, which is done through several steps:
@@ -453,11 +401,12 @@ Motion studies are graphical simulations of motion for assembly models. They sim
 \subsubsection{Animation study} 
 Animation study is done to make an animation video of the moving parts with the use of limit mates. Limit angle mate is an advanced mate type that is performed by selecting two planes which rotate with respect to each other giving the desired range to mate and input a maximum and minimum value for the angle to specify the desired range of motion. Another advantage of limit angle is that it prevent collision between the moving parts.
 
-\begin{figure}[H]
+\begin{table}[H]
 	\centering
 	\includegraphics[scale=0.7]{Axesrangeofmotion}
-	\caption{Axes range of motion}
-\end{figure}
+	\caption{Axes range of motion for each robot joint}
+	\label{table:8}
+\end{table}
 
 \bigskip
 \subsubsection{Motion analysis}
@@ -535,6 +484,72 @@ Motion analysis results and plots have a trace path option that can trace the pa
 	\centering
 	\includegraphics[scale=0.6]{Tracepathcurve}
 	\caption{Created curve}
+\end{figure}
+
+
+\subsection{Base Manufacturing}
+
+
+Several materials can be used to manufacture the body of the base, such as AISI 1010 \& AISI 1010 carbon steel, SAE 304 stainless steel, etc., all of which the mechanical properties are predefined. However, the available material in the market was steel 37, which has the following mechanical specifications:
+
+\begin{itemize}
+	\item[--] Yield Strength: $\sigma_{y} = 235 MPa$
+	\item[--] Ultimate Tensile Strength: $\sigma_{u} = 360 MPa$
+\end{itemize}
+
+
+The calculations performed on this material are proven to be safe and suitable to our designed base geometry. 
+\newline The squared, upper and lower flanges are made of a 15mm thick steel-37 sheet, and holes were drilled in the designated locations shown in the sketches below. The flanges are then welded to the cylindrical body of the base. It’s worth mentioning that the dimensions of the manufactured base are larger than those calculated, this is due to different manufacturing and safety purposes, the final dimensions manufactured are illustrated below.
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=1]{BaseDim}
+		\caption{Final dimensions for the base.}
+	\end{center}
+\end{figure}
+
+For the ribs to be welded, the base needs to be cleaned of any accumulated rust, it is then taken to undergo different machining steps, using a lathe machine. Next, it is painted in black to match the robot colors.
+\newline \figurename{1.4} illustrates different stages of manufacturing.
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.055]{WeldedFlanges}
+		\includegraphics[scale=0.04]{Lathe}
+		\includegraphics[scale=0.049]{PaintedBase}
+		\caption{Manufacturing and Machining of the base}
+	\end{center}
+\end{figure}
+
+\subsection{Base Installation}
+
+The following steps clarifies the process of installing the robot base:
+\begin{enumerate}
+	\item The exact location of the base is chosen according to the safe operating range of the robot, mentioned in the KR AGILUS sixx specification manual.
+	\item Remove the ceramic plate. The number of plates removed depends on the area of the base and the ceramic plate itself, in our case, only one plate was removed.
+	\item Scrape the sand and cement layers beneath the ceramic until you reach the concrete, it can be recognized when a layer of gravels appears.
+	\item Drill the holes, in which the dowel rods will be placed, in the predesigned positions in the concrete. For this design, seven holes were drilled, however, the number of dowels depends on the design.
+	\item Make a mixture of sand, gravels, cement and anabond adhesive agent to mold a new concrete layer, and keep mixing until it’s consistent.
+	\item Pour in the concrete mixture on top of the pre-existent one, while the dowels are placed, and wait for 2 days to ensure that it’s completely solidified.
+	\item Remove the dowels and start screwing the bolts.
+	\item Start mounting the first flange. Use a bubble level to check if it lies in a perfectly horizontal position, if not, you must scrape the newly molded concrete layer until it’s even. 
+	\textit{\newline Note: Even out the newly molded concrete once it dries, this would help you to avoid such issues in further steps.}
+	\item Mount the base, then move the robot carefully until it’s placed on it in the right orientation.
+\end{enumerate}
+
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.08]{MoldedConcrete}	
+		\includegraphics[scale=0.065]{FirstFlange}
+		\includegraphics[scale=0.08]{MountedBase}
+		\caption{Different stages of the Base installation process}
+	\end{center}
+\end{figure}
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.08, angle=270]{IMG1481}	
+		\caption{The final installation}
+	\end{center}
 \end{figure}
 
 %
