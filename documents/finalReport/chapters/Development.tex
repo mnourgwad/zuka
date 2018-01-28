@@ -58,7 +58,6 @@ You can load it from Extensions \textgreater KUKA Tools \textgreater Path to KRL
 		\includegraphics[width=0.8\textwidth]{2.png}
 	\end{figure}
 	\item Click Extensions \textgreater KUKA Tools \textgreater Path to KRL to start our plugin.
-	
 	\item Enter your settings.
 	\item Click Apply to generate the KRL Code..
 		\begin{figure}[H]
@@ -248,12 +247,18 @@ This interface is making use of the KUKAPROXYVAR proxy server, which is an TCP/I
 \subsubsection{KRL Driver}
 \paragraph{Usage}
 The KRC robot controller runs the Microsoft Windows operating system. The teach pendant shows an “HMI” which is a program that KUKA developed to run on Windows and it is the interface that the robot user has to manipulate the robot through. In order to establish an Ethernet (TCP/IP) connection, you first need to run kukavarproxy on the controllers operating system, then configure the network connection from KUKA "HMI".
-\newline \vspace{.3cm}
-\textbf{You can get the libraries from}
-\newline \url{https://github.com/mnourgwad/zuka/tree/master/codes/kukavarproxy-msg-format}
+ \begin{mynotebox}{Note}
+   You can get the libraries from:\\
+   \url{https://github.com/mnourgwad/zuka/tree/master/codes/kukavarproxy-msg-format}
+\end{mynotebox}
+
 \subparagraph{Copying kukavarproxy to the operating system on the KRC:}
 \begin{itemize}
-	\item Get the kukavarproxy from: \newline  \url{https://sourceforge.net/projects/openshowvar/files/openshowvar/REV\%200.13.0/kukavarproxy-6_1.rar/download  or from https://github.com/aauc-mechlab/JOpenShowVar/tree/master/KUKAVARPROXY\%20rev\%206.1.0.101}
+	\item Get the kukavarproxy from \emph{any} of these two sites:
+        \begin{itemize}
+            \item\url{https://sourceforge.net/projects/openshowvar/files/openshowvar/REV\%200.13.0/kukavarproxy-6_1.rar/download}
+     \item\url{https://github.com/aauc-mechlab/JOpenShowVar/tree/master/KUKAVARPROXY\%20rev\%206.1.0.101}
+    \end{itemize}
 	\item Unpack and copy the folder to a USB flash drive
 	\item Plug it to the KRC (not the teach pendant)
 	\item Log in as an Expert or Administrator. For KR C4: KUKA Menu \textgreater Configuration \textgreater User Group. Default password is kuka
@@ -262,7 +267,6 @@ The KRC robot controller runs the Microsoft Windows operating system. The teach 
 	\item Start the KUKAVARPROXY.exe
 	\item If you have a problem with the file cswsk32.ocx, Use this command in the Administrator Command Prompt regsvr32.exe c:\\asdf\\cswsk32.ocx while changing the asdf with the true path to the file.
 	\item You can make this program start automatically on reboot by creating a shortcut of KUKAVARPROXY.exe in Windows Start \textgreater All Programs\textgreater Right click Startup \textgreater Open
-	
 \end{itemize}
 \subparagraph{HMI Network Configuration}
 \begin{itemize}

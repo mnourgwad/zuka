@@ -157,10 +157,15 @@
 			\item Press Save.
 		\end{enumerate}
 		
-			\fbox{\begin{minipage}{32em}
-				For more information about tool and base calibration, please refer to section “5.11 Calibration” in the provided manual “07-KSS\_82\_Software programming\_en”.
-		 	\end{minipage}
-		}
+%			\fbox{\begin{minipage}{32em}
+%				For more information about tool and base calibration, please refer to section “5.11 Calibration” in the provided manual “07-KSS\_82\_Software programming\_en”.
+%		 	\end{minipage}
+%		}
+    \begin{mynotebox}{Note}
+        For more information about tool and base calibration, please refer to section “5.11 Calibration” in the provided manual “07-KSS\_82\_Software programming\_en”.
+    \end{mynotebox}
+    
+    
 		\newpage
 		\section{Connecting to WorkVisual using LAN connection}
 		The WorkVisual software package is the engineering environment for KR C4 controlled robotic cells. It offers the following functionalities:
@@ -232,10 +237,16 @@
 					\item Click on Install. WorkVisual is installed.	
 					\item Once installation is completed, click on Finish to close the installation wizard.
 				\end{enumerate}
-					\fbox{\begin{minipage}{32em}
-						For more information about installation, uninstallation and GUI of the WorkVisual software, please refer to Manual “KST\_WorkVisual\_en”.
-					\end{minipage}
-				}
+%					\fbox{\begin{minipage}{32em}
+%						For more information about installation, uninstallation and GUI of the WorkVisual software, please refer to Manual “KST\_WorkVisual\_en”.
+%					\end{minipage}
+%				}
+            
+              \begin{mynotebox}{Note}
+                	For more information about installation, uninstallation and GUI of the WorkVisual software, please refer to Manual “KST\_WorkVisual\_en”.
+            \end{mynotebox}
+            
+            
 			\subsection{LAN connection}
 			In order to start file sharing process and to be able to use all functions of WorkVisual, a PC-Controller connection must be established. There are several ways to connect the KRC4 and KUKA-PC, one of which is setting up a local network for the connection of between several devices. This can be done by either setting static IPs for the connected devices and connecting them physically using a specified Ethernet cable, or by using a network router and assign dynamic IPs starting from a specified value, with specified number of connected devices. 
 			\newline	
@@ -249,18 +260,30 @@
 				\item Next you either set static IPs or choose dynamic IPs to be set, in our case by the router.
 			\end{enumerate}
 			
-			\fbox{\begin{minipage}{32em}
-					The following address ranges are used by default by the
-					robot controller for internal purposes. IP addresses from
-					this range must not therefore be assigned by the user.
-					\begin{itemize}
-						\item 192.168.0.0 … 192.168.0.255
-						\item 172.16.0.0 … 172.16.255.255
-						\item 172.17.0.0 … 172.17.255.255
-					\end{itemize}
-					
-				\end{minipage}
-			}
+%			\fbox{\begin{minipage}{32em}
+%					The following address ranges are used by default by the
+%					robot controller for internal purposes. IP addresses from
+%					this range must not therefore be assigned by the user.
+%					\begin{itemize}
+%						\item 192.168.0.0 … 192.168.0.255
+%						\item 172.16.0.0 … 172.16.255.255
+%						\item 172.17.0.0 … 172.17.255.255
+%					\end{itemize}
+%					
+%				\end{minipage}
+%			}
+        
+          \begin{mynotebox}{Note}
+            The following address ranges are used by default by the
+            robot controller for internal purposes. IP addresses from
+            this range must not therefore be assigned by the user.
+            \begin{itemize}
+                \item 192.168.0.0 … 192.168.0.255
+                \item 172.16.0.0 … 172.16.255.255
+                \item 172.17.0.0 … 172.17.255.255
+            \end{itemize}
+        \end{mynotebox}
+        
 			
 			\paragraph{LAN Configuration steps}
 			\begin{enumerate}
