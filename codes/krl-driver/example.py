@@ -1,3 +1,4 @@
+#! py -2
 from krldriver import *
 
 def take():
@@ -23,10 +24,24 @@ VEL_CP(3)
 VEL_PTP(100)
 OV_PRO(10)
 APO(0)
-BASE(525,0,890,0,0,0)
-TOOL(0,0,0,0,-90,0) 
-PAL_MODE(TRUE)
+#Home 
+#BASE(525,0,890,0,0,0)
+#TOOL(0,0,0,0,-90,0) 
 
+#Home Pal
+#BASE(450,0,800,0,0,0)
+#TOOL(0,0,0,0,-180,0) 
+
+#Chess board 
+BASE(450,0,80,0,0,0)
+TOOL(0,0,200,0,-180,0) 
+
+#BASE(BASE_DATA=6)
+#TOOL(TOOL_DATA=5)
+
+LIN(0,0,0,0,0,0)
+#PAL_MODE(TRUE)
+'''
 while 1:
 	p(source)
 	take()
@@ -36,7 +51,7 @@ while 1:
 	source -=1
 	if distenation == 0: distenation = 4
 	if source == 0: source = 4
-
+'''
 """
 EXAMPLES
 
@@ -63,7 +78,7 @@ Auxilliary Functions [Not an original part of KRL]
 	GRIPPER_OPEN()						# Does the required instruction to operate a gripper actuated by port 1 and 4 
 	GRIPPER_CLOSE()
 	INI()								# Sets 	VEL_CP = 3m/s
-   VEL_PTP = 100%
+    VEL_PTP = 100%
 	OV_PRO = 10%
 	APO o= 0
 	TOOL = (0,0,0,0,0,0)

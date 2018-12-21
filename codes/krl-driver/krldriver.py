@@ -1,6 +1,9 @@
 from kukavarproxy import *
+import time
 
 robot = KUKA('172.31.1.147')
+PRO_ID = int (time.time() % 1000)
+robot.write("PRO_ID",PRO_ID)
 
 axes_limits = [ [-170,170],[-190,45],[-120,156],[-185,185],[-120,120],[-350,350]]
 AXIS = 'a'
@@ -9,6 +12,7 @@ FALSE = 0
 TRUE = 1
 
 def INI(VEL_CP_VAL=3, VEL_AXIS_VAL=100, OV_PRO_VAL=10 ,APO_VAL=0):
+	if (robot.read("PRO_ID") != str(PRO_ID)): raise error(7)
 	VEL_CP(VEL_CP_VAL)
 	VEL_PTP(VEL_AXIS_VAL)
 	OV_PRO(OV_PRO_VAL)
@@ -18,21 +22,25 @@ def INI(VEL_CP_VAL=3, VEL_AXIS_VAL=100, OV_PRO_VAL=10 ,APO_VAL=0):
 	PTP(POS,0,0,0,0,0,0)
 
 def PTP_HOME():
+	if (robot.read("PRO_ID") != str(PRO_ID)): raise error(7)
 	PTP(AXIS,0,-90,90,0,0,0)
 
 def GRIPPER_OPEN():
+	if (robot.read("PRO_ID") != str(PRO_ID)): raise error(7)
 	OUT(1,TRUE)
 	OUT(1,FALSE)
 	OUT(4,TRUE)
 	OUT(4,FALSE)
 
 def GRIPPER_CLOSE():
+	if (robot.read("PRO_ID") != str(PRO_ID)): raise error(7)
 	OUT(4,TRUE)
 	OUT(4,FALSE)
 	OUT(1,TRUE)
 	OUT(1,FALSE)
 
 def OUT(ioPort, Signal):
+	if (robot.read("PRO_ID") != str(PRO_ID)): raise error(7)
 	while (int (robot.read("KRLD_COM"))): continue
 	robot.write("KRLD_IO",ioPort)
 	if Signal == True: robot.write("KRLD_SIGNAL","TRUE")
@@ -40,12 +48,14 @@ def OUT(ioPort, Signal):
 	robot.write("KRLD_COM",14)
 
 def PAL_MODE(Signal):
+	if (robot.read("PRO_ID") != str(PRO_ID)): raise error(7)
 	while (int (robot.read("KRLD_COM"))): continue
 	if Signal == True: robot.write("KRLD_SIGNAL","TRUE")
 	else: robot.write("KRLD_SIGNAL","FALSE")
 	robot.write("KRLD_COM",15)
 
 def PTP(interpolation, v1="",v2="",v3="",v4="",v5="",v6=""):
+	if (robot.read("PRO_ID") != str(PRO_ID)): raise error(7)
 	if v1 == v2 == v3 == v4 == v5 == v6 == "": 
 		raise error(2)
 		return 0
@@ -67,6 +77,7 @@ def PTP(interpolation, v1="",v2="",v3="",v4="",v5="",v6=""):
 		raise error(3)
 
 def PTP_REL(interpolation, v1="",v2="",v3="",v4="",v5="",v6=""):
+	if (robot.read("PRO_ID") != str(PRO_ID)): raise error(7)
 	if v1 == v2 == v3 == v4 == v5 == v6 == "": 
 		raise error(2)
 		return 0
@@ -84,6 +95,7 @@ def PTP_REL(interpolation, v1="",v2="",v3="",v4="",v5="",v6=""):
 		raise error(3)
 
 def LIN (x="",y="",z="",a="",b="",c=""):
+	if (robot.read("PRO_ID") != str(PRO_ID)): raise error(7)
 	if x == y == z == a == b == c == "": raise error(3)
 	while (int (robot.read("KRLD_COM"))): continue
 	destination = format_pos(x,y,z,a,b,c)
@@ -91,6 +103,7 @@ def LIN (x="",y="",z="",a="",b="",c=""):
 	robot.write("KRLD_COM",3)
 
 def LIN_REL (x="",y="",z="",a="",b="",c=""):
+	if (robot.read("PRO_ID") != str(PRO_ID)): raise error(7)
 	if x == y == z == a == b == c == "": raise error(3)
 	while (int (robot.read("KRLD_COM"))): continue
 	destination = format_pos(x,y,z,a,b,c)
@@ -98,6 +111,7 @@ def LIN_REL (x="",y="",z="",a="",b="",c=""):
 	robot.write("KRLD_COM",7)
 
 def CIRC (x="",y="",z="",a="",b="",c="",xAux="",yAux="",zAux="",aAux="",bAux="",cAux=""):
+	if (robot.read("PRO_ID") != str(PRO_ID)): raise error(7)
 	if x == y == z == a == b == c == "": raise error(3)
 	if xAux == yAux == zAux == aAux == bAux == cAux == "": raise error(5)
 	while (int (robot.read("KRLD_COM"))): continue
@@ -108,11 +122,13 @@ def CIRC (x="",y="",z="",a="",b="",c="",xAux="",yAux="",zAux="",aAux="",bAux="",
 	robot.write("KRLD_COM",4)
 
 def WAIT(time_sec):
+	if (robot.read("PRO_ID") != str(PRO_ID)): raise error(7)
 	while (int (robot.read("KRLD_COM"))): continue
 	robot.write("KRLD_SLEEP", abs(time_sec))
 	robot.write("KRLD_COM",8)
 
 def BASE(x=0,y=0,z=0,a=0,b=0,c=0,offX=0,offY=0,offZ=0,offA=0,offB=0,offC=0,BASE_DATA=-1):
+	if (robot.read("PRO_ID") != str(PRO_ID)): raise error(7)
 	while (int (robot.read("KRLD_COM"))): continue
 	if BASE_DATA > 0: 
 		base_frame = "BASE_DATA["  + str(BASE_DATA) + "]"
@@ -126,6 +142,7 @@ def BASE(x=0,y=0,z=0,a=0,b=0,c=0,offX=0,offY=0,offZ=0,offA=0,offB=0,offC=0,BASE_
 	robot.write("KRLD_COM",9)
 
 def TOOL(x=0,y=0,z=0,a=0,b=0,c=0,TOOL_DATA=-1):
+	if (robot.read("PRO_ID") != str(PRO_ID)): raise error(7)
 	while (int (robot.read("KRLD_COM"))): continue
 	if TOOL_DATA > 0: 
 		tool_frame = "TOOL_DATA["  + str(TOOL_DATA) + "]" 
@@ -137,27 +154,32 @@ def TOOL(x=0,y=0,z=0,a=0,b=0,c=0,TOOL_DATA=-1):
 	robot.write("KRLD_COM",10)
 
 def APO(approximation_value):
+	if (robot.read("PRO_ID") != str(PRO_ID)): raise error(7)
 	while (int (robot.read("KRLD_COM"))): continue
 	robot.write("KRLD_APO", approximation_value )
 	robot.write("KRLD_COM",11)
 
 def VEL_CP(velocity_value):
+	if (robot.read("PRO_ID") != str(PRO_ID)): raise error(7)
 	while (int (robot.read("KRLD_COM"))): continue
 	robot.write("KRLD_VEL_CP", velocity_value)
 	robot.write("KRLD_COM",12)
 
 def VEL_PTP(velocity_value):
+	if (robot.read("PRO_ID") != str(PRO_ID)): raise error(7)
 	while (int (robot.read("KRLD_COM"))): continue
 	robot.write("KRLD_VEL_PTP", velocity_value)
 	robot.write("KRLD_COM",13)
 
 def OV_PRO(percentage):
+	if (robot.read("PRO_ID") != str(PRO_ID)): raise error(7)
 	while (int (robot.read("KRLD_COM"))): continue
 	if percentage < 0 or percentage > 100: raise error(4)
 	robot.write("$OV_PRO", percentage)
 	
 
 def format_axis(A1, A2, A3, A4, A5, A6):
+	if (robot.read("PRO_ID") != str(PRO_ID)): raise error(7)
 	axes = [A1,A2,A3,A4,A5,A6]
 	axes_names = ["A1","A2","A3","A4","A5","A6"]
 	instruction = " "
@@ -168,6 +190,7 @@ def format_axis(A1, A2, A3, A4, A5, A6):
 	return "{" + instruction + "}"
 
 def format_pos(x, y, z, a, b, c):
+	if (robot.read("PRO_ID") != str(PRO_ID)): raise error(7)
 	coordinates = [x,y,z,a,b,c]
 	coordinates_names = ["X","Y","Z","A","B","C"]
 	instruction = " "
@@ -184,4 +207,5 @@ def error(index, axis=9):
 	if index == 4: print("$OV_PRO values should be percentage.")
 	if index == 5: print("Incorrect base number.")
 	if index == 6: print("One auxilliary coordinate- at least- should be defined for CIRC motion.")
+	if index == 7: print("Another program has gained access to the robot.")
 	raise SystemExit
