@@ -2,7 +2,7 @@
 
 > Commissioning, offline/online programming, and vision-based control of a KUKA KR6 R900 *sixx* industrial manipulator.
 
-ZuKa is the software and documentation suite produced for a Bachelor graduation project (Mechatronics Program, Zagazig University, 2017). It covers the full lifecycle of putting a KUKA KR C4–controlled robot into service and then extending it well beyond its factory capabilities: from base setting, mastering and end-effector installation, through **offline programming** (G-Code / vector-art → KUKA Robot Language), to **online, real-time control** from any PC over TCP/IP — including two computer-vision research applications built on ROS and the Microsoft Kinect.
+ZuKa is the software and documentation suite produced for a project (Mechatronics Program, Zagazig University). It covers the full lifecycle of putting a KUKA KR C4–controlled robot into service and then extending it well beyond its factory capabilities: from base setting, mastering and end-effector installation, through **offline programming** (G-Code / vector-art → KUKA Robot Language), to **online, real-time control** from any PC over TCP/IP — including two computer-vision research applications built on ROS and the Microsoft Kinect.
 
 ---
 
